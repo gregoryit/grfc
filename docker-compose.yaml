@@ -1,5 +1,6 @@
 services:
   postgres:
+    container_name: pg
     image: postgres:latest
     restart: always
     env_file:
