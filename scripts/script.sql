@@ -1,3 +1,6 @@
+
+CREATE USER postgres SUPERUSER;
+
 CREATE TABLE "users"(
     "id" INTEGER NOT NULL,
     "sudb_id" INTEGER NOT NULL,

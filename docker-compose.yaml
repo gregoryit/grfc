@@ -1,6 +1,7 @@
 services:
-  postgres:
+  pg:
     container_name: pg
+    hostname: pg
     image: postgres:latest
     restart: always
     env_file:
@@ -10,15 +11,16 @@ services:
     volumes:
       - ./scripts/:/docker-entrypoint-initdb.d
       - .:/var/lib/postgresql/data
-  
+
   web:
     container_name: grfc_backend
     build: 
       context: ./grfc_backend 
       dockerfile: Dockerfile 
     ports:
-    - "8001:8001"
+      - "8001:8001"
     depends_on:
-    - postgres
+      - pg
+
     env_file:
       - .env
