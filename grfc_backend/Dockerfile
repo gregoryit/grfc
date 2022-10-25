@@ -1,11 +1,19 @@
-FROM python:3.8-slim
+FROM python:3.10-slim
 
+# устанавливаем рабочую директорию
 WORKDIR /app
 
-COPY requirements.txt .
-
-RUN pip3 install -r requirements.txt --no-cache-dir
-
+# копируем необходимые данные
 COPY . .
 
-CMD sleep 15 && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8001
+# переменные окружения для python (не создавать файлы кэша .pyc и не помещать в буфер потоки stdout и stderr)
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# устанавливаем зависимости
+RUN pip install --upgrade pip\
+ && pip install --no-cache-dir -r requirements.txt\
+ && chmod +x entrypoint.sh
+
+# активизация миграции и gunicorn
+ENTRYPOINT ["sh", "entrypoint.sh"]
