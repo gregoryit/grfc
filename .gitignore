@@ -164,3 +164,6 @@ pgdata/
 
 #certifacates
 certbot/
+
+#static
+grfc_backend/static/
