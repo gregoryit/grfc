@@ -1,16 +1,18 @@
 <template>
   <Header />
-  <Table />
+  <Content />
 </template>
 
 <script lang="ts">
 import Header from './components/Header.vue';
-import Table from './components/Table.vue';
+import Content from './components/Content.vue';
+
 export default {
   name: 'App',
   components: {
     Header,
-    Table,
+    Content,
+
   },
 };
 </script>
