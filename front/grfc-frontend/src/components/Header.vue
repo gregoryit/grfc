@@ -10,10 +10,8 @@
 import BurgerMenu from './headerComponents/BurgerMenu.vue';
 import SearchBar from './headerComponents/SeachBar.vue';
 import ProfileBar from './headerComponents/ProfileBar.vue';
-import { useStore } from '@/store';
 
 export default {
-
   name: 'AppHeader',
   components: {
     BurgerMenu,
@@ -21,16 +19,16 @@ export default {
     ProfileBar,
   },
 };
-
 </script>
 
 <style lang="scss" scoped>
-
 .header {
   display: flex;
   background-color: #000084;
   height: 100px;
-  width: 100vw;
+  padding: 0 30px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
-
 </style>
