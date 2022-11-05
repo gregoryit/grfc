@@ -21,10 +21,6 @@ export default {
   box-sizing: border-box;
 }
 
-header {
-  display: flex;
-}
-
 #app {
   width: 1980px;
   margin: auto;

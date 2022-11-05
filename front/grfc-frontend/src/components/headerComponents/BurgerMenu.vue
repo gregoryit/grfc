@@ -1,10 +1,11 @@
 <template>
-  <div class="container_BurgerMenu">
+  <div class="burger-menu__container">
+
     <div class="burger-menu">
-      <button name="btn_burger_menu" type="button" class="btn_burger_menu">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
+      <button name="burger-menu__button" type="button" class="burger-menu__button">
+        <span class="burger-menu__element"></span>
+        <span class="burger-menu__element"></span>
+        <span class="burger-menu__element"></span>
       </button>
     </div>
   </div>
@@ -20,12 +21,12 @@ export default {
 
 <style lang="scss" scoped>
 
-.container_BurgerMenu {
+.burger-menu__container {
   margin-left: 38px;
   margin-top: 35px;
 }
 
-.btn_burger_menu {
+.burger-menu__button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -38,10 +39,10 @@ export default {
 
 }
 
-.line {
+.burger-menu__element {
   display: block;
   width: 30px;
-  height: 1px;
+  height: 1.7px;
   background-color: #ffffff;
 }
 

@@ -1,10 +1,11 @@
 <template>
-  <div class="container_SearchBar">
+  <div class="search-bar__container">
+
     <div class="search-bar">
-      <input type="search" name="seacrh" class="input_search" placeholder="Search...">
-      <button name="search_button" type="submit" class="search_btn">
-        <figure class="search_btn">
-          <img src="../../assets/search_btn.png" alt="" class="search_btn_png">
+      <input type="search" name="seacrh" class="search-bar__input" placeholder="Search...">
+      <button name="search_button" type="submit" class="search-input__button">
+        <figure class="search-bar__figure">
+          <img src="../../assets/search_btn.png" alt="" class="search-bar__img">
         </figure>
       </button>
     </div>
@@ -19,7 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 
-.container_SearchBar {
+.search-bar__container {
   margin-top: 22px;
   margin-left: 23vw;
 }
@@ -32,7 +33,16 @@ export default {
   border-radius: 50px;
 }
 
-.input_search {
+.search-input__button {
+  width: 27px;
+  height: 27px;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.search-bar__input {
   margin-top: 12px;
   margin-left: 19px;
   width: 533px;
@@ -44,19 +54,10 @@ export default {
   font-weight: 400;
 }
 
-.search_btn_png {
+.search-bar__img {
   width: 27px;
   height: 27px;
   margin-top: 12px;
-}
-
-.search_btn {
-  width: 27px;
-  height: 27px;
-  background-color: transparent;
-  border: 0;
-  outline: 0;
-  cursor: pointer;
 }
 
 input[type="search"]::-webkit-search-decoration,

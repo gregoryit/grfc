@@ -1,24 +1,31 @@
 <template>
-  <div class="container_ProfileBar">
+  <div class="profile-bar__container">
+
     <div class="profile-bar">
-      <button name="notification" type="button" class="notification_btn">
-        <figure class="notification_btn">
-          <img src="../../assets/notification_btn.png" alt="" class="notification_btn_png">
+      <div class="profile-bar__notification">
+      <button name="notification" type="button" class="notification__button">
+        <figure class="notification__figure">
+          <img src="../../assets/notification_btn.png" alt="" class="notification__figure__img">
         </figure>
       </button>
+      </div>
 
-      <figure class="user_photo">
-        <img src="../../assets/user_photo.png" alt="" class="user_photo_img">
+      <div class="profile-bar__user-photo">
+      <figure class="user-photo__figure">
+        <img src="../../assets/user_photo.png" alt="" class="user-photo__img">
       </figure>
+      </div>
 
-      <div class="username">Синицин Александр</div>
 
-      <button name="arrow_down" type="button" class="arrow_down_btn">
-        <figure class="arrow_down">
-          <img src="../../assets/arrow_down.png" alt="" class="arrow_down_png">
+      <div class="profile-bar__username">Синицин Александр</div>
+
+      <div class="profile-bar_arrow-down">
+      <button name="arrow_down" type="button" class="profile-bar__arrow-down-button">
+        <figure class="profile-bar_arrow_down__figure">
+          <img src="../../assets/arrow_down.png" alt="" class="profile-bar__arrow-down__img">
         </figure>
       </button>
-
+      </div>
     </div>
   </div>
 </template>
@@ -33,7 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 
-.container_ProfileBar {
+.profile-bar__container {
   width: 408px;
   height: 65px;
   margin-top: 18px;
@@ -48,19 +55,14 @@ export default {
   height: inherit;
 }
 
-.notification_btn_png {
-  width: 30px;
-  height: 33px;
-}
-
-.notification_btn {
+.notification__button {
   background-color: transparent;
   border: 0;
   outline: 0;
   cursor: pointer;
 }
 
-.user_photo_img {
+.user-photo__img {
   width: 65px;
   height: 65px;
   background-color: #D9D9D9;
@@ -68,7 +70,7 @@ export default {
   margin-left: 40px;
 }
 
-.username {
+.profile-bar__username {
   font-family: 'Raleway', sans-serif;
   font-size: 24px;
   color: #ffffff;
@@ -76,13 +78,13 @@ export default {
   margin-left: 15px;
 }
 
-.arrow_down_png {
+.profile-bar__arrow-down__img {
   width: 16px;
   height: 20px;
   margin-top: 9px;
 }
 
-.arrow_down_btn {
+.profile-bar__arrow-down-button {
   background-color: transparent;
   border: 0;
   outline: 0;

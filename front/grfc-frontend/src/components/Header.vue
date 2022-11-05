@@ -27,6 +27,7 @@ export default {
 <style lang="scss" scoped>
 
 .header {
+  display: flex;
   background-color: #000084;
   height: 100px;
   width: 100vw;
