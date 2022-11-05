@@ -1,6 +1,5 @@
 <template>
   <Header />
-  <div class="menu">aasdf</div>
 </template>
 
 <script lang="ts">
