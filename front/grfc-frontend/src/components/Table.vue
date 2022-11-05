@@ -21,5 +21,6 @@ export default {
 .table-wrapper {
   margin: 30px 10px 0;
   border: 1px solid #ebebeb;
+  width: 100%;
 }
 </style>

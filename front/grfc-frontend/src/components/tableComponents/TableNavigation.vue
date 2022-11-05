@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import NavigationPaths from './navigationComponents/NavigationPaths.vue';
+import NavigationPaths from './TableNavigationPaths.vue';
 
 export default {
   name: 'TableNavigation',

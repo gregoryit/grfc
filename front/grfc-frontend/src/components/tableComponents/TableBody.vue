@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import BodyRow from './bodyComponents/BodyRow.vue';
+import BodyRow from './bodyModules/BodyRow.vue';
 export default {
   name: 'TableBody',
   components: {
@@ -67,6 +67,7 @@ export default {
     }
     &__checkbox {
       float: right;
+      margin-top: 3px;
     }
   }
 }

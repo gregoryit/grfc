@@ -1,6 +1,5 @@
 <template>
   <menu>
-    
     <div class="menu-wrapper">
       <div class="menu-content">
         <div class="search-bar__container">
@@ -27,76 +26,72 @@
           </div>
         </div>
         <div class="first-layer">
-          <img class="menu-type" src="../../assets/menu_doc.png" alt="">
+          <img class="menu-type" src="../../assets/menu_doc.png" alt="" />
           <div class="first-layer-text">Администрирование</div>
-          <img src="../../assets/arrow_down.png" class="menu-arrow" alt="">
+          <img src="../../assets/arrow_down.png" class="menu-arrow" alt="" />
         </div>
         <div class="second-layer">
-          <img class="menu-type" src="../../assets/menu_doc.png" alt="">
+          <img class="menu-type" src="../../assets/menu_doc.png" alt="" />
           <div class="first-layer-text">Пользователи</div>
-          <img src="../../assets/arrow_down.png" class="menu-arrow" alt="">
+          <img src="../../assets/arrow_down.png" class="menu-arrow" alt="" />
         </div>
         <div class="second-layer">
-          <img class="menu-type" src="../../assets/menu_doc.png" alt="">
+          <img class="menu-type" src="../../assets/menu_doc.png" alt="" />
           <div class="first-layer-text">Запросы</div>
-          <img src="../../assets/arrow_down.png" class="menu-arrow" alt="">
+          <img src="../../assets/arrow_down.png" class="menu-arrow" alt="" />
         </div>
         <div class="third-layer">
-          <img class="menu-type" src="../../assets/menu_folder.png" alt="">
+          <img class="menu-type" src="../../assets/menu_folder.png" alt="" />
           <div class="first-layer-text">Аудит</div>
-          
         </div>
         <div class="third-layer">
-          <img class="menu-type" src="../../assets/menu_folder.png" alt="">
+          <img class="menu-type" src="../../assets/menu_folder.png" alt="" />
           <div class="first-layer-text">История активности</div>
-          
         </div>
         <div class="third-layer">
-          <img class="menu-type" src="../../assets/menu_folder.png" alt="">
+          <img class="menu-type" src="../../assets/menu_folder.png" alt="" />
           <div class="first-layer-text">Очередь</div>
-          
         </div>
         <div class="third-layer">
-          <img class="menu-type" src="../../assets/menu_folder.png" alt="">
+          <img class="menu-type" src="../../assets/menu_folder.png" alt="" />
           <div class="first-layer-text">Системные задания</div>
-          
         </div>
         <div class="second-layer">
-          <img class="menu-type" src="../../assets/menu_doc.png" alt="">
+          <img class="menu-type" src="../../assets/menu_doc.png" alt="" />
           <div class="first-layer-text">Периодические операции</div>
-          <img src="../../assets/arrow_down.png" class="menu-arrow" alt="">
+          <img src="../../assets/arrow_down.png" class="menu-arrow" alt="" />
         </div>
         <div class="third-layer">
-          <img class="menu-type" src="../../assets/menu_folder.png" alt="">
+          <img class="menu-type" src="../../assets/menu_folder.png" alt="" />
           <div class="first-layer-text">Системные задания</div>
         </div>
         <div class="second-layer">
-          <img class="menu-type" src="../../assets/menu_doc.png" alt="">
+          <img class="menu-type" src="../../assets/menu_doc.png" alt="" />
           <div class="first-layer-text">Настройки</div>
-          <img src="../../assets/arrow_down.png" class="menu-arrow" alt="">
+          <img src="../../assets/arrow_down.png" class="menu-arrow" alt="" />
         </div>
         <div class="third-layer">
-          <img class="menu-type" src="../../assets/menu_folder.png" alt="">
+          <img class="menu-type" src="../../assets/menu_folder.png" alt="" />
           <div class="first-layer-text">Аудит</div>
         </div>
         <div class="third-layer">
-          <img class="menu-type" src="../../assets/menu_folder.png" alt="">
+          <img class="menu-type" src="../../assets/menu_folder.png" alt="" />
           <div class="first-layer-text">Группы пользователей</div>
         </div>
         <div class="third-layer">
-          <img class="menu-type" src="../../assets/menu_folder.png" alt="">
+          <img class="menu-type" src="../../assets/menu_folder.png" alt="" />
           <div class="first-layer-text">Номерные серии</div>
         </div>
         <div class="third-layer">
-          <img class="menu-type" src="../../assets/menu_folder.png" alt="">
+          <img class="menu-type" src="../../assets/menu_folder.png" alt="" />
           <div class="first-layer-text">Объекты</div>
         </div>
         <div class="third-layer">
-          <img class="menu-type" src="../../assets/menu_folder.png" alt="">
+          <img class="menu-type" src="../../assets/menu_folder.png" alt="" />
           <div class="first-layer-text">Параметры</div>
         </div>
         <div class="third-layer">
-          <img class="menu-type" src="../../assets/menu_folder.png" alt="">
+          <img class="menu-type" src="../../assets/menu_folder.png" alt="" />
           <div class="first-layer-text">Шаблоны</div>
         </div>
       </div>
@@ -111,13 +106,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.menu-content{
-    width: 360px;
-    height: 801px;
-    background-color: #000855;
+.menu-content {
+  width: 360px;
+  height: 801px;
+  background-color: #000855;
 }
 .search-bar__container {
   padding-top: 18px;
@@ -159,53 +153,52 @@ export default {
   margin-top: 10px;
 }
 
-.first-layer{
+.first-layer {
   width: 300px;
   display: flex;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-left: 35px;
   margin-top: 26px;
   align-items: center;
-  
 }
 
-.menu-type{
-    margin-right: 7px;
-    width: 13px;
-    height: 18px;
-  }
+.menu-type {
+  margin-right: 7px;
+  width: 13px;
+  height: 18px;
+}
 
-.menu-arrow{
+.menu-arrow {
   margin-left: auto;
   margin-right: 0;
   width: 15px;
   height: 12px;
 }
 
-.second-layer{
+.second-layer {
   width: 282px;
   display: flex;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-left: 53px;
   margin-top: 8px;
   align-items: center;
 }
 
-.third-layer{
+.third-layer {
   width: 241px;
   display: flex;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-left: 94px;
   margin-top: 8px;
   align-items: center;
 
-  .menu-type{
+  .menu-type {
     height: 21px;
     width: 25px;
   }

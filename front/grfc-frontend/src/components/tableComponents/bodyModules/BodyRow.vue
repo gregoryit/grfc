@@ -1,7 +1,7 @@
 <template>
-  <tr class="body__row">
+  <tr class="body__row" :class="{ selected: selected }">
     <td class="body__cell">
-      <input class="body__checkbox" type="checkbox" />
+      <input v-model="selected" class="body__checkbox" type="checkbox" />
     </td>
     <td class="body__cell">Текст</td>
     <td class="body__cell">Текст</td>
@@ -12,11 +12,21 @@
 </template>
 
 <script lang="ts">
-export default {};
+export default {
+  name: 'BodyRow',
+  data() {
+    return {
+      selected: false,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .body {
+  &__row.selected {
+    background: #f2f2f2;
+  }
   &__cell {
     height: 40px;
     border: 1px solid #ebebeb;
