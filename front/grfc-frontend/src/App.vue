@@ -2,6 +2,7 @@
   <Header />
   <div class="menu">aasdf</div>
 </template>
+
 <script lang="ts">
 import Header from './components/Header.vue';
 export default {
@@ -13,10 +14,15 @@ export default {
 </script>
 
 <style lang="scss">
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+header {
+  display: flex;
 }
 
 #app {
