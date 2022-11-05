@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import BodyRow from './bodyModules/BodyRow.vue';
+import BodyRow from './bodyComponents/BodyRow.vue';
 export default {
   name: 'TableBody',
   components: {
