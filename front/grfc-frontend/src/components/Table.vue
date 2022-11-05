@@ -1,15 +1,18 @@
 <template>
   <div class="table-wrapper">
     <TableNavigation />
+    <TableBody />
   </div>
 </template>
 
 <script lang="ts">
+import TableBody from './tableComponents/TableBody.vue';
 import TableNavigation from './tableComponents/TableNavigation.vue';
 export default {
   name: 'AppTable',
   components: {
     TableNavigation,
+    TableBody,
   },
 };
 </script>
@@ -17,5 +20,7 @@ export default {
 <style lang="scss" scoped>
 .table-wrapper {
   margin: 30px 10px 0;
+  border: 1px solid #ebebeb;
+  width: 100%;
 }
 </style>
