@@ -1,31 +1,24 @@
 <template>
-  <div class="burger-menu__container">
-
-    <div class="burger-menu">
-      <button name="burger-menu__button" type="button" class="burger-menu__button">
-        <span class="burger-menu__element"></span>
-        <span class="burger-menu__element"></span>
-        <span class="burger-menu__element"></span>
-      </button>
-    </div>
+  <div class="burger-menu">
+    <button
+      name="burger-menu__button"
+      type="button"
+      class="burger-menu__button"
+    >
+      <span class="burger-menu__element"></span>
+      <span class="burger-menu__element"></span>
+      <span class="burger-menu__element"></span>
+    </button>
   </div>
 </template>
 
 <script lang="ts">
-
 export default {
   name: 'BurgerMenu',
 };
-
 </script>
 
 <style lang="scss" scoped>
-
-.burger-menu__container {
-  margin-left: 38px;
-  margin-top: 35px;
-}
-
 .burger-menu__button {
   display: flex;
   flex-direction: column;
@@ -36,7 +29,6 @@ export default {
   border: 0;
   background-color: transparent;
   cursor: pointer;
-
 }
 
 .burger-menu__element {
@@ -45,5 +37,4 @@ export default {
   height: 1.7px;
   background-color: #ffffff;
 }
-
 </style>

@@ -1,14 +1,16 @@
 <template>
-  <div class="search-bar__container">
-
-    <div class="search-bar">
-      <input type="search" name="seacrh" class="search-bar__input" placeholder="Search...">
-      <button name="search_button" type="submit" class="search-input__button">
-        <figure class="search-bar__figure">
-          <img src="../../assets/search_btn.png" alt="" class="search-bar__img">
-        </figure>
-      </button>
-    </div>
+  <div class="search-bar">
+    <input
+      type="search"
+      name="seacrh"
+      class="search-bar__input"
+      placeholder="Поиск..."
+    />
+    <button name="search_button" type="submit" class="search-input__button">
+      <figure class="search-bar__figure">
+        <img src="../../assets/search_btn.png" alt="" class="search-bar__img" />
+      </figure>
+    </button>
   </div>
 </template>
 
@@ -19,12 +21,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.search-bar__container {
-  margin-top: 22px;
-  margin-left: 23vw;
-}
-
 .search-bar {
   display: flex;
   width: 600px;
@@ -60,9 +56,10 @@ export default {
   margin-top: 12px;
 }
 
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { display: none; }
-
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
 </style>
