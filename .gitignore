@@ -167,3 +167,5 @@ certbot/
 
 #static
 grfc_backend/static/
+
+*.csv
