@@ -19,6 +19,7 @@ export default {
 
 <style lang="scss" scoped>
 .table-wrapper {
+  height: fit-content;
   margin: 30px 10px 0;
   border: 1px solid #ebebeb;
   width: 100%;
