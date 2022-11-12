@@ -5,7 +5,7 @@
         <button name="notification" type="button" class="notification__button">
           <figure class="notification__figure">
             <img
-              src="../../assets/notification_btn.png"
+              src="../../assets/header/notification_btn.png"
               alt=""
               class="notification__figure__img"
             />
@@ -16,14 +16,14 @@
       <div class="profile-bar__user-photo">
         <figure class="user-photo__figure">
           <img
-            src="../../assets/user_photo.png"
+            src="../../assets/header/user_photo.png"
             alt=""
             class="user-photo__img"
           />
         </figure>
       </div>
 
-      <div class="profile-bar__username">Синицин <br />Александр</div>
+      <div class="profile-bar__username">Синицин Александр</div>
 
       <div class="profile-bar_arrow-down">
         <button
@@ -33,7 +33,7 @@
         >
           <figure class="profile-bar_arrow_down__figure">
             <img
-              src="../../assets/arrow_down.png"
+              src="../../assets/menu/arrow_down.png"
               alt=""
               class="profile-bar__arrow-down__img"
             />
@@ -68,24 +68,28 @@ export default {
   outline: 0;
   cursor: pointer;
 }
+.notification__figure__img {
+  height: 25px;
+  width: 25px;
+}
 
 .user-photo__img {
-  width: 65px;
-  height: 65px;
+  width: 45px;
+  height: 45px;
   background-color: #d9d9d9;
   border-radius: 35px;
 }
 
 .profile-bar__username {
   font-family: 'Raleway', sans-serif;
-  font-size: 24px;
+  font-size: 16px;
   color: #ffffff;
   font-weight: 400;
 }
 
 .profile-bar__arrow-down__img {
-  width: 16px;
-  height: 20px;
+  width: 14px;
+  height: 12px;
 }
 
 .profile-bar__arrow-down-button {

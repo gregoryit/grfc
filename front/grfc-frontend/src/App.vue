@@ -1,22 +1,16 @@
 <template>
   <Header />
-  <div class="temporary">
-    <Menu />
-    <Table />
-  </div>
+  <Content />
 </template>
 
 <script lang="ts">
 import Header from './components/Header.vue';
-import Menu from './components/headerComponents/Menu.vue';
-import Table from './components/Table.vue';
-
+import Content from './components/Content.vue';
 export default {
   name: 'App',
   components: {
     Header,
-    Menu,
-    Table,
+    Content,
   },
 };
 </script>
@@ -33,8 +27,9 @@ export default {
 #app {
   max-width: 1440px;
   margin: auto;
-}
-.temporary {
+  position: relative;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
 }
 </style>
