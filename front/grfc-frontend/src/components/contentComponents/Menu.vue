@@ -19,7 +19,7 @@
           >
             <figure class="search-bar__figure">
               <img
-                src="../../assets/header/search_btn.png"
+                src="../../assets/header/search_btn.svg"
                 alt=""
                 class="search-bar__img"
               />
@@ -28,72 +28,72 @@
         </div>
       </div>
       <div class="first-layer">
-        <img class="menu-type" src="../../assets/menu/menu_doc.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_doc.svg" alt="" />
         <div class="first-layer-text">Администрирование</div>
-        <img src="../../assets/menu/arrow_down.png" class="menu-arrow" alt="" />
+        <img src="../../assets/menu/arrow_down.svg" class="menu-arrow" alt="" />
       </div>
       <div class="second-layer">
-        <img class="menu-type" src="../../assets/menu/menu_doc.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_doc.svg" alt="" />
         <div class="first-layer-text">Пользователи</div>
-        <img src="../../assets/menu/arrow_down.png" class="menu-arrow" alt="" />
+        <img src="../../assets/menu/arrow_down.svg" class="menu-arrow" alt="" />
       </div>
       <div class="second-layer">
-        <img class="menu-type" src="../../assets/menu/menu_doc.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_doc.svg" alt="" />
         <div class="first-layer-text">Запросы</div>
-        <img src="../../assets/menu/arrow_down.png" class="menu-arrow" alt="" />
+        <img src="../../assets/menu/arrow_down.svg" class="menu-arrow" alt="" />
       </div>
       <div class="third-layer">
-        <img class="menu-type" src="../../assets/menu/menu_folder.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_folder.svg" alt="" />
         <div class="first-layer-text">Аудит</div>
       </div>
       <div class="third-layer">
-        <img class="menu-type" src="../../assets/menu/menu_folder.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_folder.svg" alt="" />
         <div class="first-layer-text">История активности</div>
       </div>
       <div class="third-layer">
-        <img class="menu-type" src="../../assets/menu/menu_folder.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_folder.svg" alt="" />
         <div class="first-layer-text">Очередь</div>
       </div>
       <div class="third-layer">
-        <img class="menu-type" src="../../assets/menu/menu_folder.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_folder.svg" alt="" />
         <div class="first-layer-text">Системные задания</div>
       </div>
       <div class="second-layer">
-        <img class="menu-type" src="../../assets/menu/menu_doc.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_doc.svg" alt="" />
         <div class="first-layer-text">Периодические операции</div>
-        <img src="../../assets/menu/arrow_down.png" class="menu-arrow" alt="" />
+        <img src="../../assets/menu/arrow_down.svg" class="menu-arrow" alt="" />
       </div>
       <div class="third-layer">
-        <img class="menu-type" src="../../assets/menu/menu_folder.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_folder.svg" alt="" />
         <div class="first-layer-text">Системные задания</div>
       </div>
       <div class="second-layer">
-        <img class="menu-type" src="../../assets/menu/menu_doc.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_doc.svg" alt="" />
         <div class="first-layer-text">Настройки</div>
-        <img src="../../assets/menu/arrow_down.png" class="menu-arrow" alt="" />
+        <img src="../../assets/menu/arrow_down.svg" class="menu-arrow" alt="" />
       </div>
       <div class="third-layer">
-        <img class="menu-type" src="../../assets/menu/menu_folder.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_folder.svg" alt="" />
         <div class="first-layer-text">Аудит</div>
       </div>
       <div class="third-layer">
-        <img class="menu-type" src="../../assets/menu/menu_folder.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_folder.svg" alt="" />
         <div class="first-layer-text">Группы пользователей</div>
       </div>
       <div class="third-layer">
-        <img class="menu-type" src="../../assets/menu/menu_folder.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_folder.svg" alt="" />
         <div class="first-layer-text">Номерные серии</div>
       </div>
       <div class="third-layer">
-        <img class="menu-type" src="../../assets/menu/menu_folder.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_folder.svg" alt="" />
         <div class="first-layer-text">Объекты</div>
       </div>
       <div class="third-layer">
-        <img class="menu-type" src="../../assets/menu/menu_folder.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_folder.svg" alt="" />
         <div class="first-layer-text">Параметры</div>
       </div>
       <div class="third-layer">
-        <img class="menu-type" src="../../assets/menu/menu_folder.png" alt="" />
+        <img class="menu-type" src="../../assets/menu/menu_folder.svg" alt="" />
         <div class="first-layer-text">Шаблоны</div>
       </div>
     </div>
