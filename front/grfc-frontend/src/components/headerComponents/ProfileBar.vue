@@ -5,7 +5,7 @@
         <button name="notification" type="button" class="notification__button">
           <figure class="notification__figure">
             <img
-              src="../../assets/header/notification_btn.png"
+              src="../../assets/header/notification_btn.svg"
               alt=""
               class="notification__figure__img"
             />
@@ -33,7 +33,7 @@
         >
           <figure class="profile-bar_arrow_down__figure">
             <img
-              src="../../assets/menu/arrow_down.png"
+              src="../../assets/menu/arrow_down.svg"
               alt=""
               class="profile-bar__arrow-down__img"
             />
@@ -69,7 +69,6 @@ export default {
   cursor: pointer;
 }
 .notification__figure__img {
-  height: 25px;
   width: 25px;
 }
 

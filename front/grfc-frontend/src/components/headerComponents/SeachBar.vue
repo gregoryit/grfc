@@ -7,13 +7,11 @@
       placeholder="Поиск..."
     />
     <button name="search_button" type="submit" class="search-input__button">
-      <figure class="search-bar__figure">
-        <img
-          src="../../assets/header/search_btn.png"
-          alt=""
-          class="search-bar__img"
-        />
-      </figure>
+      <img
+        src="../../assets/header/search_btn.svg"
+        alt=""
+        class="search-bar__img"
+      />
     </button>
   </div>
 </template>
@@ -53,8 +51,7 @@ export default {
 }
 
 .search-bar__img {
-  width: 27px;
-  height: 27px;
+  width: 18px;
 }
 
 input[type='search']::-webkit-search-decoration,
