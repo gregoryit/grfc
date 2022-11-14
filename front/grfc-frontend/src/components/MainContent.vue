@@ -9,7 +9,7 @@
 <script lang="ts">
 import Menu from './contentComponents/Menu.vue';
 import SideBar from './contentComponents/SideBar.vue';
-import Table from './Table.vue';
+import Table from './MainTable.vue';
 export default {
   name: 'AppContent',
   components: {
