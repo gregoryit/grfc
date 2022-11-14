@@ -57,7 +57,8 @@ export default defineComponent({
   methods: {
     toggleSidedrop(event: Event) {
       const target = event.target as HTMLInputElement;
-      this.checked = target.id;
+      if (this.checked === target.id) this.checked = '';
+      else this.checked = target.id;
     },
     closeModal() {
       this.checked = '';
