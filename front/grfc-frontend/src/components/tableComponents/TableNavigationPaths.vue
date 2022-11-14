@@ -1,6 +1,6 @@
 <template>
   <label class="find-btn">
-    <input class="find-btn__input" type="checkbox" @click="log" />
+    <input class="find-btn__input" type="checkbox" />
     <span class="find-btn__text">Найдено(0)</span>
   </label>
   <label class="filter-btn">
@@ -12,12 +12,6 @@
 <script lang="ts">
 export default {
   name: 'NavigationPaths',
-  methods: {
-    log(event: Event) {
-      const target = event.target as HTMLInputElement;
-      console.log(target.checked);
-    },
-  },
 };
 </script>
 

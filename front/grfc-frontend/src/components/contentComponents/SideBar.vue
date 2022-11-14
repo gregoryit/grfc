@@ -1,57 +1,21 @@
 <template>
   <form class="side-bar" :class="{ hidden: $store.state.menu.isMenuActive }">
     <label
-      for="search"
+      v-for="button in buttons"
+      :key="button.id"
+      :for="button.name"
       @click="toggleSidedrop"
-      :class="{ active: checked === 'search' }"
+      :class="{ active: checked === button.name }"
     >
-      <input type="checkbox" class="checkbox" id="search" />
+      <input type="checkbox" class="checkbox" :id="button.name" />
       <img
-        class="search__img"
-        src="@/assets/header/search_btn.svg"
-        alt=""
+        :class="`${button.name}__img`"
+        :src="require('@/assets' + button.imageSrc)"
+        :alt="button.name"
         @click.stop
       />
       <SideDropdown
-        v-if="checked === 'search'"
-        :closeModal="closeModal"
-        :checked="checked"
-      />
-    </label>
-
-    <label
-      for="folder"
-      @click="toggleSidedrop"
-      :class="{ active: checked === 'folder' }"
-    >
-      <input type="checkbox" class="checkbox" id="folder" />
-      <img
-        class="folder__img"
-        src="@/assets/menu/menu_folder.svg"
-        alt=""
-        @click.stop
-      />
-      <SideDropdown
-        v-if="checked === 'folder'"
-        :closeModal="closeModal"
-        :checked="checked"
-      />
-    </label>
-
-    <label
-      for="document"
-      @click="toggleSidedrop"
-      :class="{ active: checked === 'document' }"
-    >
-      <input type="checkbox" class="checkbox" id="document" />
-      <img
-        class="document__img"
-        src="@/assets/menu/menu_doc.svg"
-        alt=""
-        @click.stop
-      />
-      <SideDropdown
-        v-if="checked === 'document'"
+        v-if="checked === button.name"
         :closeModal="closeModal"
         :checked="checked"
       />
@@ -70,6 +34,23 @@ export default defineComponent({
   },
   data() {
     return {
+      buttons: [
+        {
+          id: 1,
+          name: 'search',
+          imageSrc: '/header/search_btn.svg',
+        },
+        {
+          id: 2,
+          name: 'folder',
+          imageSrc: '/menu/menu_folder.svg',
+        },
+        {
+          id: 3,
+          name: 'document',
+          imageSrc: '/menu/menu_doc.svg',
+        },
+      ],
       checked: '',
     };
   },

@@ -1,48 +1,55 @@
 <template>
   <table class="table">
-    <thead class="table__header header">
-      <tr class="header__row">
-        <th class="header__cell">
-          <input class="header__main-checkbox" type="checkbox" />
-        </th>
-        <th class="header__cell">
-          <span class="header__text">Текст</span>
-          <input class="header__checkbox" type="checkbox" />
-        </th>
-        <th class="header__cell">
-          <span class="header__text">Текст</span>
-          <input class="header__checkbox" type="checkbox" />
-        </th>
-        <th class="header__cell">
-          <span class="header__text">Текст</span>
-          <input class="header__checkbox" type="checkbox" />
-        </th>
-        <th class="header__cell">
-          <span class="header__text">Текст</span>
-          <input class="header__checkbox" type="checkbox" />
-        </th>
-        <th class="header__cell">
-          <span class="header__text">Текст</span>
-          <input class="header__checkbox" type="checkbox" />
-        </th>
-      </tr>
-    </thead>
+    <BodyHeader />
     <tbody class="table__body body">
-      <BodyRow v-for="item in mokArray" :key="item" />
+      <BodyRow v-for="item in mokData" :key="item.id" :data="item" />
     </tbody>
   </table>
 </template>
 
 <script lang="ts">
+import BodyHeader from './bodyModules/BodyHeader.vue';
 import BodyRow from './bodyModules/BodyRow.vue';
 export default {
   name: 'TableBody',
   components: {
     BodyRow,
+    BodyHeader,
   },
   data() {
     return {
-      mokArray: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      mokData: [
+        {
+          id: 1,
+          code: '001',
+          name: 'mok1',
+          description: 'mokDesc1',
+          author: 'Зорина Виктория Романовна',
+          type: 'type1',
+          status: 'На ознакомлении',
+          date: new Date(),
+        },
+        {
+          id: 2,
+          code: '002',
+          name: 'mok2',
+          description: 'mokDesc2',
+          author: 'Ермаков Максим Иванович',
+          type: 'type2',
+          status: 'Выполнено',
+          date: new Date(),
+        },
+        {
+          id: 3,
+          code: '003',
+          name: 'mok3',
+          description: 'mokDesc3',
+          author: 'Белова Аиша Михайловна',
+          type: 'type3',
+          status: 'На рассмотрении',
+          date: new Date(),
+        },
+      ],
     };
   },
 };
@@ -54,21 +61,5 @@ export default {
   padding: 0;
   margin: 0;
   border-collapse: collapse;
-  .header {
-    &__cell {
-      height: 40px;
-      border: 1px solid #ebebeb;
-      background-color: #e8e8e8;
-      justify-content: space-between;
-      padding: 0 15px;
-    }
-    &__text {
-      float: left;
-    }
-    &__checkbox {
-      float: right;
-      margin-top: 3px;
-    }
-  }
 }
 </style>
