@@ -1,25 +1,30 @@
 <template>
   <tr class="body__row" :class="{ selected: selected }">
-    <td class="body__cell">
-      <input v-model="selected" class="body__checkbox" type="checkbox" />
+    <td class="body__cell" v-for="(item, key, index) in data" :key="index">
+      <input
+        v-if="key === 'id'"
+        v-model="selected"
+        class="body__checkbox"
+        type="checkbox"
+      />
+      <span v-else>{{ item }}</span>
     </td>
-    <td class="body__cell">Текст</td>
-    <td class="body__cell">Текст</td>
-    <td class="body__cell">Текст</td>
-    <td class="body__cell">Текст</td>
-    <td class="body__cell">Текст</td>
   </tr>
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+export default defineComponent({
   name: 'BodyRow',
+  props: {
+    data: Object,
+  },
   data() {
     return {
       selected: false,
     };
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>
