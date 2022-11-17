@@ -24,9 +24,12 @@
       </div>
 
       <div class="profile-bar__username">Синицин Александр</div>
-
+      <ProfileDropdown 
+      :opened="opened"
+      v-show="opened"/>
       <div class="profile-bar_arrow-down">
         <button
+          @click="toggle"
           name="arrow_down"
           type="button"
           class="profile-bar__arrow-down-button"
@@ -45,9 +48,26 @@
 </template>
 
 <script lang="ts">
-export default {
+import ProfileDropdown from './ProfileDropdown.vue';
+import { defineComponent } from 'vue'
+export default defineComponent({
   name: 'ProfileBar',
-};
+  components: {ProfileDropdown
+
+  },
+  data(){
+    return{
+      opened: false,
+      
+    }
+  },
+
+  methods: {
+    toggle(){
+      this.opened = !this.opened;
+    }
+  }
+});
 </script>
 
 <style lang="scss" scoped>

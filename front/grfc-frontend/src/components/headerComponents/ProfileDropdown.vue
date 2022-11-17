@@ -1,11 +1,31 @@
 <template>
-  <div></div>
+  <div id="profile-dropdown">
+    
+  </div>
 </template>
 
 <script lang="ts">
-export default {
-  name: 'ProfileDropdown',
-};
+import { defineComponent } from 'vue'
+
+
+
+export default defineComponent({
+  name: "ProfileDropdown",
+  
+
+})
+
+
+
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped lang="scss">
+  #profile-dropdown{
+    width: 246px;
+    height: 300px;
+    background-color: #000855;
+    position: absolute;
+    top: 80px;
+    right: 0px;
+  }
+</style>
