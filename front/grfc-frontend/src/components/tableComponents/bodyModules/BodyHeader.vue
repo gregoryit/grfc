@@ -1,9 +1,7 @@
 <template>
   <thead class="table__header header">
     <tr class="header__row">
-      <th class="header__cell">
-        <input class="header__main-checkbox" type="checkbox" />
-      </th>
+      <th class="header__cell"></th>
       <th class="header__cell" v-for="item in mokHeader" :key="item.id">
         <div class="header__cell-wrapper">
           <span class="header__text">{{ item.name }}</span>
@@ -11,7 +9,11 @@
             <button v-if="item.hasSearch" class="header__sort-button">
               <img :src="require('@/assets/table/body_search.svg')" />
             </button>
-            <button v-if="item.imageSrc" class="header__sort-toggle">
+            <button
+              v-if="item.imageSrc"
+              class="header__sort-toggle"
+              @click="selectSort('code')"
+            >
               <img
                 :src="require('@/assets/table/body_' + item.imageSrc + '.svg')"
               />
@@ -50,6 +52,11 @@ export default defineComponent({
         { id: 7, name: 'Дата', imageSrc: 'date' },
       ],
     };
+  },
+  methods: {
+    selectSort(value: string) {
+      this.$store.commit('sortBy', value);
+    },
   },
 });
 </script>

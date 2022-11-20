@@ -20,11 +20,6 @@ export default {
   props: {
     toggleMenu: Function,
   },
-  data() {
-    return {
-      isMenuActive: false,
-    };
-  },
 };
 </script>
 

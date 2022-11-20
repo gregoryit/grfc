@@ -19,10 +19,15 @@ export default defineComponent({
   props: {
     data: Object,
   },
-  data() {
-    return {
-      selected: false,
-    };
+  computed: {
+    selected: {
+      get() {
+        return this.$store.getters.isRowSelected(this.data?.id);
+      },
+      set() {
+        this.$store.commit('toggleRowSelection', this.data?.id);
+      },
+    },
   },
 });
 </script>
