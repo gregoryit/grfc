@@ -1,7 +1,7 @@
 <template>
   <label class="find-btn">
     <input class="find-btn__input" type="checkbox" />
-    <span class="find-btn__text">Найдено(0)</span>
+    <span class="find-btn__text">Найдено({{ getFindedLen }})</span>
   </label>
   <label class="filter-btn">
     <input class="filter-btn__input" type="checkbox" />
@@ -10,9 +10,12 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+import { mapGetters } from 'vuex';
+export default defineComponent({
   name: 'NavigationPaths',
-};
+  computed: mapGetters(['getFindedLen']),
+});
 </script>
 
 <style lang="scss" scoped>

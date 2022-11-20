@@ -184,7 +184,6 @@ export default {
 
 .third-layer {
   margin-left: 24px;
-  width: 241px;
   display: flex;
   color: #ffffff;
   align-items: center;

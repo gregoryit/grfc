@@ -7,6 +7,7 @@
         class="body__checkbox"
         type="checkbox"
       />
+      <span v-else-if="key === 'date'"> {{ formateDate(item) }}</span>
       <span v-else>{{ item }}</span>
     </td>
   </tr>
@@ -14,15 +15,26 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { format } from 'date-fns';
 export default defineComponent({
   name: 'BodyRow',
   props: {
     data: Object,
   },
-  data() {
-    return {
-      selected: false,
-    };
+  methods: {
+    formateDate(date: Date) {
+      return format(date, 'dd.mm.yyyy');
+    },
+  },
+  computed: {
+    selected: {
+      get() {
+        return this.$store.getters.isRowSelected(this.data?.id);
+      },
+      set() {
+        this.$store.commit('toggleRowSelection', this.data?.id);
+      },
+    },
   },
 });
 </script>
