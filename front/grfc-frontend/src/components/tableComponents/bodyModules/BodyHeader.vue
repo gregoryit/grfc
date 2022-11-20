@@ -12,7 +12,8 @@
             <button
               v-if="item.imageSrc"
               class="header__sort-toggle"
-              @click="selectSort('code')"
+              :class="{ down: item.direction }"
+              @click="selectSort(item.value)"
             >
               <img
                 :src="require('@/assets/table/body_' + item.imageSrc + '.svg')"
@@ -33,29 +34,68 @@ export default defineComponent({
   data() {
     return {
       mokHeader: [
-        { id: 1, name: 'Код', hasSearch: true },
-        { id: 2, name: 'Наименование', imageSrc: 'arrow' },
-        { id: 3, name: 'Описание', imageSrc: 'length' },
+        {
+          id: 1,
+          value: 'code',
+          name: 'Код',
+          hasSearch: true,
+          direction: false,
+        },
+        {
+          id: 2,
+          value: 'name',
+          name: 'Наименование',
+          imageSrc: 'arrow',
+          direction: false,
+        },
+        {
+          id: 3,
+          value: 'description',
+          name: 'Описание',
+          imageSrc: 'length',
+          direction: false,
+        },
         {
           id: 4,
+          value: 'author',
           name: 'Автор',
           hasSearch: true,
           imageSrc: 'arrow',
+          direction: false,
         },
-        { id: 5, name: 'Тип', imageSrc: 'length' },
+        {
+          id: 5,
+          value: 'type',
+          name: 'Тип',
+          imageSrc: 'length',
+          direction: false,
+        },
         {
           id: 6,
+          value: 'status',
           name: 'Статус',
           hasSearch: true,
           imageSrc: 'arrow',
+          direction: false,
         },
-        { id: 7, name: 'Дата', imageSrc: 'date' },
+        {
+          id: 7,
+          value: 'date',
+          name: 'Дата',
+          imageSrc: 'date',
+          direction: false,
+        },
       ],
     };
   },
   methods: {
     selectSort(value: string) {
-      this.$store.commit('sortBy', value);
+      this.mokHeader.forEach((item) => {
+        if (item.value === value) {
+          this.$store.commit('sortBy', [value, item.direction]);
+          item.direction = !item.direction;
+        }
+      });
     },
   },
 });
@@ -81,11 +121,26 @@ export default defineComponent({
   &__buttons-wrapper {
     display: flex;
     gap: 3px;
+    align-items: center;
   }
   &__sort-button,
   &__sort-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 0;
     background-color: transparent;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    transition: 0.2s;
+    border-radius: 10em;
+    &:hover {
+      background-color: #dddddd;
+    }
+    &.down {
+      transform: rotate(180deg);
+    }
   }
 }
 </style>

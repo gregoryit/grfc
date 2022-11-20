@@ -19,7 +19,7 @@ export default {
         {
           id: 1,
           code: '001',
-          name: 'mok1',
+          name: 'mok2',
           description: 'mokDesc1',
           author: 'Зорина Виктория Романовна',
           type: 'type1',
@@ -29,7 +29,7 @@ export default {
         {
           id: 2,
           code: '002',
-          name: 'mok2',
+          name: 'mok1',
           description: 'mokDesc2',
           author: 'Ермаков Максим Иванович',
           type: 'type2',
@@ -66,16 +66,26 @@ export default {
         }
       }
     },
-    sortBy(state: ITable, value: 'code') {
+    sortBy(
+      state: ITable,
+      payload: [value: keyof ITableRow, direction: boolean]
+    ) {
+      const [value, direction] = payload;
       state.data = state.data.sort((a, b) => {
-        if (a[value] >= b[value]) return 1;
-        else return -1;
+        if (direction) {
+          return a[value] >= b[value] ? 1 : -1;
+        } else {
+          return a[value] < b[value] ? 1 : -1;
+        }
       });
     },
   },
   getters: {
     isRowSelected: (state: ITable) => (id: number) => {
       return state.selectedData.includes(id);
+    },
+    getFindedLen: (state: ITable) => {
+      return state.data.length;
     },
   },
 };
