@@ -5,20 +5,35 @@
       <input class="table-nav__input" type="text" placeholder="Поиск..." />
     </form>
     <div class="table-nav__buttons">
-      <button class="table-nav__search-btn" alt="alt" />
-      <button class="table-nav__add-btn" alt="alt" />
+      <button class="table-nav__search-btn" />
+      <button class="table-nav__add-btn" />
       <span class="table-nav__vertical-line"></span>
-      <button class="table-nav__settings-btn" alt="alt" />
-      <button class="table-nav__save-btn" alt="alt" />
+      <button
+        class="table-nav__settings-btn"
+        @click="() => (isSettingActive = true)"
+      />
+      <button class="table-nav__save-btn" />
     </div>
   </div>
+  <ModalSettings v-show="isSettingActive" :closeSettings="closeSettings" />
 </template>
 
 <script lang="ts">
-import NavigationPaths from './TableNavigationPaths.vue';
+import NavigationPaths from './navigationModules/Paths.vue';
+import ModalSettings from './navigationModules/ModalSettings.vue';
 export default {
   name: 'TableNavigation',
-  components: { NavigationPaths },
+  components: { NavigationPaths, ModalSettings },
+  data() {
+    return {
+      isSettingActive: false,
+    };
+  },
+  methods: {
+    closeSettings(): void {
+      this.isSettingActive = false;
+    },
+  },
 };
 </script>
 

@@ -12,16 +12,16 @@ import { defineComponent } from 'vue';
 import { mapState } from 'vuex';
 import BodyHeader from './bodyModules/BodyHeader.vue';
 import BodyRow from './bodyModules/BodyRow.vue';
+
 export default defineComponent({
   name: 'TableBody',
   components: {
     BodyRow,
     BodyHeader,
   },
-  data() {
-    return {};
+  computed: {
+    ...mapState(['table']),
   },
-  computed: mapState(['table']),
 });
 </script>
 

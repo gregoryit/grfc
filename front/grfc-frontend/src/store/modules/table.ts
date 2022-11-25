@@ -1,3 +1,6 @@
+import tableHeader, { ITableHeader } from './tableHeader';
+import tableSettings, { ITableSettings } from './tableSettings';
+
 export interface ITableRow {
   id: number;
   code: string;
@@ -7,12 +10,24 @@ export interface ITableRow {
   type: string;
   status: string;
   date: Date;
+  dateOfCreate: Date;
+  dateOfEdit: Date;
+  signatory: string;
+  correspondent: string;
 }
+
 export interface ITable {
   data: ITableRow[];
   selectedData: number[];
+  tableHeader: ITableHeader;
+  tableSettings: ITableSettings;
 }
+
 export default {
+  modules: {
+    tableHeader,
+    tableSettings,
+  },
   state() {
     return {
       data: [
@@ -25,6 +40,10 @@ export default {
           type: 'type1',
           status: 'На ознакомлении',
           date: new Date(),
+          dateOfCreate: new Date(),
+          dateOfEdit: new Date(),
+          signatory: '001',
+          correspondent: '001',
         },
         {
           id: 2,
@@ -35,6 +54,10 @@ export default {
           type: 'type2',
           status: 'Выполнено',
           date: new Date(),
+          dateOfCreate: new Date(),
+          dateOfEdit: new Date(),
+          signatory: '002',
+          correspondent: '002',
         },
         {
           id: 3,
@@ -45,6 +68,10 @@ export default {
           type: 'type3',
           status: 'На рассмотрении',
           date: new Date(),
+          dateOfCreate: new Date(),
+          dateOfEdit: new Date(),
+          signatory: '003',
+          correspondent: '003',
         },
       ],
       selectedData: [],
@@ -86,6 +113,22 @@ export default {
     },
     getFindedLen: (state: ITable) => {
       return state.data.length;
+    },
+    getDataByColumns: (state: ITable) => (id: number) => {
+      let index = 0;
+      const currentRow = Object.assign(
+        {},
+        state.data.find((item) => item.id === id)
+      );
+      for (const key in currentRow) {
+        const isIndexInSelectedColumns =
+          state.tableHeader.selectedColumns.includes(index);
+        if (!isIndexInSelectedColumns && key !== 'id') {
+          delete currentRow[key as keyof ITableRow];
+        }
+        index++;
+      }
+      return currentRow;
     },
   },
 };

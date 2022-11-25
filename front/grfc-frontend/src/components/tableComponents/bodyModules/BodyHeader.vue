@@ -2,7 +2,11 @@
   <thead class="table__header header">
     <tr class="header__row">
       <th class="header__cell"></th>
-      <th class="header__cell" v-for="item in mokHeader" :key="item.id">
+      <th
+        class="header__cell"
+        v-for="item in getSelectedColumns"
+        :key="item.id"
+      >
         <div class="header__cell-wrapper">
           <span class="header__text">{{ item.name }}</span>
           <div class="header__buttons-wrapper">
@@ -27,77 +31,26 @@
 </template>
 
 <script lang="ts">
+import { ITableHeaderColumn } from '@/store/modules/tableHeader';
 import { defineComponent } from 'vue';
+import { mapGetters } from 'vuex';
 
 export default defineComponent({
   name: 'BodyHeader',
   data() {
-    return {
-      mokHeader: [
-        {
-          id: 1,
-          value: 'code',
-          name: 'Код',
-          hasSearch: true,
-          direction: false,
-        },
-        {
-          id: 2,
-          value: 'name',
-          name: 'Наименование',
-          imageSrc: 'arrow',
-          direction: false,
-        },
-        {
-          id: 3,
-          value: 'description',
-          name: 'Описание',
-          imageSrc: 'length',
-          direction: false,
-        },
-        {
-          id: 4,
-          value: 'author',
-          name: 'Автор',
-          hasSearch: true,
-          imageSrc: 'arrow',
-          direction: false,
-        },
-        {
-          id: 5,
-          value: 'type',
-          name: 'Тип',
-          imageSrc: 'length',
-          direction: false,
-        },
-        {
-          id: 6,
-          value: 'status',
-          name: 'Статус',
-          hasSearch: true,
-          imageSrc: 'arrow',
-          direction: false,
-        },
-        {
-          id: 7,
-          value: 'date',
-          name: 'Дата',
-          imageSrc: 'date',
-          direction: false,
-        },
-      ],
-    };
+    return {};
   },
   methods: {
     selectSort(value: string) {
-      this.mokHeader.forEach((item) => {
-        if (item.value === value) {
+      this.getAllColumns.forEach((item: ITableHeaderColumn) => {
+        if (item.value === value && item.direction !== undefined) {
           this.$store.commit('sortBy', [value, item.direction]);
           item.direction = !item.direction;
         }
       });
     },
   },
+  computed: mapGetters(['getAllColumns', 'getSelectedColumns']),
 });
 </script>
 
@@ -117,6 +70,13 @@ export default defineComponent({
   }
   &__text {
     float: left;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    color: #7c7f9f;
   }
   &__buttons-wrapper {
     display: flex;

@@ -1,13 +1,23 @@
 <template>
   <tr class="body__row" :class="{ selected: selected }">
-    <td class="body__cell" v-for="(item, key, index) in data" :key="index">
+    <td
+      class="body__cell"
+      v-for="(item, key, index) in filteredData"
+      :key="index"
+    >
       <input
         v-if="key === 'id'"
         v-model="selected"
         class="body__checkbox"
         type="checkbox"
       />
-      <span v-else-if="key === 'date'"> {{ formateDate(item) }}</span>
+      <span
+        v-else-if="
+          key === 'date' || key === 'dateOfCreate' || key === 'dateOfEdit'
+        "
+      >
+        {{ formateDate(item as Date) }}
+      </span>
       <span v-else>{{ item }}</span>
     </td>
   </tr>
@@ -16,6 +26,9 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { format } from 'date-fns';
+import { mapState } from 'vuex';
+import { ITableRow } from '@/store/modules/table';
+
 export default defineComponent({
   name: 'BodyRow',
   props: {
@@ -23,7 +36,7 @@ export default defineComponent({
   },
   methods: {
     formateDate(date: Date) {
-      return format(date, 'dd.mm.yyyy');
+      return format(date, 'dd.MM.yyyy');
     },
   },
   computed: {
@@ -34,6 +47,10 @@ export default defineComponent({
       set() {
         this.$store.commit('toggleRowSelection', this.data?.id);
       },
+    },
+    ...mapState(['table']),
+    filteredData(): ITableRow {
+      return this.$store.getters.getDataByColumns(this.data?.id);
     },
   },
 });
