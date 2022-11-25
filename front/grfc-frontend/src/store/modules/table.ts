@@ -1,4 +1,5 @@
 import tableHeader, { ITableHeader } from './tableHeader';
+import tableSettings, { ITableSettings } from './tableSettings';
 
 export interface ITableRow {
   id: number;
@@ -14,14 +15,18 @@ export interface ITableRow {
   signatory: string;
   correspondent: string;
 }
+
 export interface ITable {
   data: ITableRow[];
   selectedData: number[];
   tableHeader: ITableHeader;
+  tableSettings: ITableSettings;
 }
+
 export default {
   modules: {
     tableHeader,
+    tableSettings,
   },
   state() {
     return {
@@ -109,17 +114,21 @@ export default {
     getFindedLen: (state: ITable) => {
       return state.data.length;
     },
-    getDataByColumns: (state: ITable) => (data: ITableRow) => {
+    getDataByColumns: (state: ITable) => (id: number) => {
       let index = 0;
-      for (const key in data) {
+      const currentRow = Object.assign(
+        {},
+        state.data.find((item) => item.id === id)
+      );
+      for (const key in currentRow) {
         const isIndexInSelectedColumns =
           state.tableHeader.selectedColumns.includes(index);
         if (!isIndexInSelectedColumns && key !== 'id') {
-          delete data[key as keyof ITableRow];
+          delete currentRow[key as keyof ITableRow];
         }
         index++;
       }
-      return data;
+      return currentRow;
     },
   },
 };

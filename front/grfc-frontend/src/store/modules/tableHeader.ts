@@ -63,21 +63,18 @@ export default {
           value: 'date',
           name: 'Дата',
           imageSrc: 'date',
-          direction: false,
         },
         {
           id: 8,
           value: 'dateOfCreate',
           name: 'Дата создания',
           imageSrc: 'date',
-          direction: false,
         },
         {
           id: 9,
           value: 'dateOfEdit',
           name: 'Дата изменения',
           imageSrc: 'date',
-          direction: false,
         },
         {
           id: 10,
@@ -97,7 +94,16 @@ export default {
       selectedColumns: [1, 2, 3, 4, 5, 6, 7],
     };
   },
-  mutations: {},
+  mutations: {
+    selectColumn(state: ITableHeader, id: number) {
+      state.selectedColumns.push(id);
+    },
+    unselectColumn(state: ITableHeader, id: number) {
+      state.selectedColumns = state.selectedColumns.filter(
+        (columnId) => columnId !== id
+      );
+    },
+  },
   getters: {
     getAllColumns(state: ITableHeader) {
       return state.data;
@@ -106,6 +112,14 @@ export default {
       return state.data.filter((item) => {
         const isColumnSelected = state.selectedColumns.includes(item.id);
         if (isColumnSelected) {
+          return item;
+        }
+      });
+    },
+    getUnselectedColumns(state: ITableHeader) {
+      return state.data.filter((item) => {
+        const isColumnSelected = state.selectedColumns.includes(item.id);
+        if (!isColumnSelected) {
           return item;
         }
       });

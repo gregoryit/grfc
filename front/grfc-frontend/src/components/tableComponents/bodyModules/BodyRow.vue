@@ -16,8 +16,8 @@
           key === 'date' || key === 'dateOfCreate' || key === 'dateOfEdit'
         "
       >
-        {{ formateDate(item as Date) }}</span
-      >
+        {{ formateDate(item as Date) }}
+      </span>
       <span v-else>{{ item }}</span>
     </td>
   </tr>
@@ -50,7 +50,7 @@ export default defineComponent({
     },
     ...mapState(['table']),
     filteredData(): ITableRow {
-      return this.$store.getters.getDataByColumns(this.data);
+      return this.$store.getters.getDataByColumns(this.data?.id);
     },
   },
 });

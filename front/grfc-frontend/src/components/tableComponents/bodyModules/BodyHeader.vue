@@ -43,7 +43,7 @@ export default defineComponent({
   methods: {
     selectSort(value: string) {
       this.getAllColumns.forEach((item: ITableHeaderColumn) => {
-        if (item.value === value) {
+        if (item.value === value && item.direction !== undefined) {
           this.$store.commit('sortBy', [value, item.direction]);
           item.direction = !item.direction;
         }
