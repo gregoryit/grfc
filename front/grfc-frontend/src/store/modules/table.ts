@@ -1,3 +1,5 @@
+import tableHeader, { ITableHeader } from './tableHeader';
+
 export interface ITableRow {
   id: number;
   code: string;
@@ -7,12 +9,20 @@ export interface ITableRow {
   type: string;
   status: string;
   date: Date;
+  dateOfCreate: Date;
+  dateOfEdit: Date;
+  signatory: string;
+  correspondent: string;
 }
 export interface ITable {
   data: ITableRow[];
   selectedData: number[];
+  tableHeader: ITableHeader;
 }
 export default {
+  modules: {
+    tableHeader,
+  },
   state() {
     return {
       data: [
@@ -25,6 +35,10 @@ export default {
           type: 'type1',
           status: 'На ознакомлении',
           date: new Date(),
+          dateOfCreate: new Date(),
+          dateOfEdit: new Date(),
+          signatory: '001',
+          correspondent: '001',
         },
         {
           id: 2,
@@ -35,6 +49,10 @@ export default {
           type: 'type2',
           status: 'Выполнено',
           date: new Date(),
+          dateOfCreate: new Date(),
+          dateOfEdit: new Date(),
+          signatory: '002',
+          correspondent: '002',
         },
         {
           id: 3,
@@ -45,6 +63,10 @@ export default {
           type: 'type3',
           status: 'На рассмотрении',
           date: new Date(),
+          dateOfCreate: new Date(),
+          dateOfEdit: new Date(),
+          signatory: '003',
+          correspondent: '003',
         },
       ],
       selectedData: [],
@@ -86,6 +108,18 @@ export default {
     },
     getFindedLen: (state: ITable) => {
       return state.data.length;
+    },
+    getDataByColumns: (state: ITable) => (data: ITableRow) => {
+      let index = 0;
+      for (const key in data) {
+        const isIndexInSelectedColumns =
+          state.tableHeader.selectedColumns.includes(index);
+        if (!isIndexInSelectedColumns && key !== 'id') {
+          delete data[key as keyof ITableRow];
+        }
+        index++;
+      }
+      return data;
     },
   },
 };
