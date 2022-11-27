@@ -36,8 +36,8 @@ export default defineComponent({
     },
   },
 });
-
 </script>
+
 <style lang="scss" scoped>
 .table-nav {
   display: flex;

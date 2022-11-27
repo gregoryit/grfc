@@ -1,10 +1,20 @@
 <template>
   <label class="find-btn">
-    <input class="find-btn__input" type="checkbox" />
+    <input
+      class="find-btn__input"
+      type="checkbox"
+      :checked="checked === 'find'"
+      @click="changePath('find')"
+    />
     <span class="find-btn__text">Найдено({{ getFindedLen }})</span>
   </label>
   <label class="filter-btn">
-    <input class="filter-btn__input" type="checkbox" />
+    <input
+      class="filter-btn__input"
+      type="checkbox"
+      :checked="checked === 'filter'"
+      @click="changePath('filter')"
+    />
     <span class="filter-btn__text">Фильтры</span>
   </label>
 </template>
@@ -14,6 +24,17 @@ import { defineComponent } from 'vue';
 import { mapGetters } from 'vuex';
 export default defineComponent({
   name: 'NavigationPaths',
+  data() {
+    return {
+      checked: 'find',
+    };
+  },
+  methods: {
+    changePath(path: string) {
+      this.checked = path;
+      this.$router.push('/' + path);
+    },
+  },
   computed: mapGetters(['getFindedLen']),
 });
 </script>

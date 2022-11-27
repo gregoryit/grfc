@@ -1,18 +1,16 @@
 <template>
   <div class="table-wrapper">
     <TableNavigation />
-    <TableBody />
+    <RouterView></RouterView>
   </div>
 </template>
 
 <script lang="ts">
-import TableBody from './tableComponents/TableBody.vue';
 import TableNavigation from './tableComponents/TableNavigation.vue';
 export default {
   name: 'AppTable',
   components: {
     TableNavigation,
-    TableBody,
   },
 };
 </script>
