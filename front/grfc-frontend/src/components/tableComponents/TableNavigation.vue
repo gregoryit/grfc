@@ -19,9 +19,10 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import NavigationPaths from './navigationModules/Paths.vue';
 import ModalSettings from './navigationModules/ModalSettings.vue';
-export default {
+export default defineComponent({
   name: 'TableNavigation',
   components: { NavigationPaths, ModalSettings },
   data() {
@@ -34,7 +35,7 @@ export default {
       this.isSettingActive = false;
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>
