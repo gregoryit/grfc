@@ -195,6 +195,7 @@ export default defineComponent({
 }
 .available__row,
 .choosen__row {
+  transition: 0.08s;
   height: 40px;
   width: 95%;
   line-height: 40px;
