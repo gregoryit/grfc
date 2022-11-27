@@ -3,7 +3,13 @@
     <div class="modal__wrapper">
       <div class="modal__container">
         <div class="modal__header-wrapper">
-          <button class="modal__exit" @click="closeSettings">X</button>
+          <button class="modal__exit" @click="closeSettings">
+            <img
+              class="modal__exit-btn"
+              src="@/assets/table/modal__exit-btn.svg"
+              alt=""
+            />
+          </button>
           <h3 class="modal__header">Настройка таблицы</h3>
         </div>
         <div class="modal__content">
@@ -38,7 +44,7 @@
           <label for="selectors__rows">
             <span>Строк в таблице:</span>
             <select
-              class="selectors__rows"
+              class="selectors__rows selectors_btn"
               id="selectors__rows"
               placeholder="Значимость"
             >
@@ -50,7 +56,7 @@
           <label for="selectors__font-size">
             <span>Размер шрифта:</span>
             <select
-              class="selectors__font-size"
+              class="selectors__font-size selectors_btn"
               id="selectors__font-size"
               placeholder="Значимость"
             >
@@ -62,7 +68,7 @@
           <label for="selectors__padding">
             <span>Отступ:</span>
             <select
-              class="selectors__padding"
+              class="selectors__padding selectors_btn"
               id="selectors__padding"
               placeholder="Значимость"
             >
@@ -128,39 +134,63 @@ export default defineComponent({
 }
 
 .modal__header {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
   margin-top: 0;
-  color: #000000;
+  font-style: normal;
+  color: #373951;
+}
+
+.modal__exit-btn {
+  width: 18px;
+  height: 18px;
+  align-items: center;
+}
+.modal__exit-btn:hover {
+  width: 20px;
+  height: 20px;
+  transition: 0;
+  opacity: 0.75;
 }
 
 .modal__exit {
   float: right;
-  width: 22px;
-  height: 22px;
+  margin: 5px 4px 5px;
   border: 0;
   border-radius: 100%;
   text-align: center;
   line-height: 20px;
-  transition: 0.4s;
+  transition: 0.1s;
   color: #000;
+  width: 22px;
+  height: 22px;
+  background: none;
   cursor: pointer;
 }
 
 .modal__content {
   display: flex;
   gap: 10px;
+  color: #6d7095;
+  padding-bottom: 7px;
 }
 
 .modal__available-columns,
 .modal__choosen-columns {
   width: 100%;
 }
+.modal__header-wrapper {
+  margin-bottom: 27px;
+}
 .available__rows,
 .choosen__rows {
-  border: 1px solid black;
+  border: 1px solid;
   height: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-color: #6d7095;
   overflow: scroll;
 }
 .available__row,
@@ -172,8 +202,12 @@ export default defineComponent({
   text-align: start;
   border-radius: 10px;
   border: 0;
+  color: #6d7095;
   background-color: #fff;
   &:hover {
+    font-size: 14px;
+    height: 48px;
+    width: 100%;
     background-color: #f4f4f4;
   }
 }
@@ -184,9 +218,13 @@ export default defineComponent({
   flex-direction: column;
   gap: 10px;
   align-items: flex-end;
+  color: #6d7095;
   & > * {
     display: flex;
     gap: 10px;
   }
+}
+.selectors_btn {
+  color: #6d7095;
 }
 </style>
