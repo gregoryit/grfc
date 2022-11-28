@@ -2,18 +2,20 @@
   <label class="find-btn">
     <input
       class="find-btn__input"
-      type="checkbox"
-      :checked="checked === 'find'"
-      @click="changePath('find')"
+      type="radio"
+      value="find"
+      v-model="checked"
+      @click="$router.push('/')"
     />
     <span class="find-btn__text">Найдено({{ getFindedLen }})</span>
   </label>
   <label class="filter-btn">
     <input
       class="filter-btn__input"
-      type="checkbox"
-      :checked="checked === 'filter'"
-      @click="changePath('filter')"
+      type="radio"
+      value="filter"
+      v-model="checked"
+      @click="$router.push('/filter')"
     />
     <span class="filter-btn__text">Фильтры</span>
   </label>
@@ -28,12 +30,6 @@ export default defineComponent({
     return {
       checked: 'find',
     };
-  },
-  methods: {
-    changePath(path: string) {
-      this.checked = path;
-      this.$router.push('/' + path);
-    },
   },
   computed: mapGetters(['getFindedLen']),
 });

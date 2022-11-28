@@ -3,7 +3,7 @@
     <div class="modal__wrapper">
       <div class="modal__container">
         <div class="modal__header-wrapper">
-          <button class="modal__exit" @click="closeSettings">
+          <button class="modal__exit" @click="$emit('closeSettings')">
             <img
               class="modal__exit-btn"
               src="@/assets/table/modal__exit-btn.svg"
@@ -93,6 +93,9 @@ export default defineComponent({
     closeSettings: Function,
   },
   methods: {
+    key(e: Event) {
+      console.log(e);
+    },
     ...mapMutations(['selectColumn', 'unselectColumn']),
   },
   computed: {

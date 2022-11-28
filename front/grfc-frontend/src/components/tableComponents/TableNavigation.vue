@@ -8,19 +8,19 @@
       <button class="table-nav__search-btn" />
       <button class="table-nav__add-btn" />
       <span class="table-nav__vertical-line"></span>
-      <button
-        class="table-nav__settings-btn"
-        @click="() => (isSettingActive = true)"
-      />
+      <button class="table-nav__settings-btn" @click="isSettingActive = true" />
       <button class="table-nav__save-btn" />
     </div>
   </div>
-  <ModalSettings v-show="isSettingActive" :closeSettings="closeSettings" />
+  <ModalSettings
+    v-show="isSettingActive"
+    @closeSettings="() => (isSettingActive = false)"
+  />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import NavigationPaths from './navigationModules/Paths.vue';
+import NavigationPaths from './navigationModules/PathsButtons.vue';
 import ModalSettings from './navigationModules/ModalSettings.vue';
 export default defineComponent({
   name: 'TableNavigation',
@@ -29,11 +29,6 @@ export default defineComponent({
     return {
       isSettingActive: false,
     };
-  },
-  methods: {
-    closeSettings(): void {
-      this.isSettingActive = false;
-    },
   },
 });
 </script>

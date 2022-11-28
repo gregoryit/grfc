@@ -11,7 +11,7 @@ const routes: Array<RouteRecordRaw> = [
     component: Main,
     children: [
       {
-        path: 'find',
+        path: '/',
         component: TableBody,
       },
       {
