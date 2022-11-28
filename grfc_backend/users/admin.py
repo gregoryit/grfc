@@ -8,7 +8,9 @@ class GrfcUserAdmin(UserAdmin):
     add_form = GrfcUserCreationForm
     form = GrfcUserChangeForm
     model = GrfcUser
-    list_display = ['username', 'fio', 'fio_r', 'fio_d', 'fio_t']
+    fieldsets = UserAdmin.fieldsets + ((None, {'fields': ['patronymic', 'fio', 'fio_r', 'fio_d', 'fio_t']}), )
+    add_fieldsets = UserAdmin.add_fieldsets + ((None, {'fields': ['first_name', 'last_name', 'patronymic']}), )
+    list_display = ['username', 'email', 'first_name', 'last_name', 'patronymic', 'fio', 'fio_r', 'fio_d', 'fio_t']
 
 admin.site.register(GrfcUser, GrfcUserAdmin)
 

@@ -124,6 +124,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Default primary key field type
@@ -134,3 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = ['https://gregory.fun']
 
 AUTH_USER_MODEL = 'users.GrfcUser'
+
+ADMINS = (
+    ('admin', 'admin@admin.com'),
+)

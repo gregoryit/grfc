@@ -4,20 +4,19 @@ from django.contrib.auth.models import AbstractUser
 
 class MyActiveManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset().filter(is_deleted=False)
+        return super().get_queryset().filter(deleted_who__isnull=True)
 
 class MyInactiveManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset().filter(is_deleted=True)
+        return super().get_queryset().filter(deleted_who__isnull=False)
 
 class BaseModel(models.Model):
-    created_who = models.IntegerField(default = 1)
+    created_who = models.IntegerField(default=1)
     crated_at = models.DateField(auto_now_add=True)
-    updated_who = models.IntegerField(default = 1)
+    updated_who = models.IntegerField(default=1)
     updated_at = models.DateField(auto_now=True)
-    deleted_who = models.IntegerField(default = 1)
-    deleted_at = models.DateField(auto_now=True)
-    is_deleted = models.BooleanField(default=False)
+    deleted_who = models.IntegerField(blank=True, null=True)
+    deleted_at = models.DateField(blank=True, null=True)
 
     objects = MyActiveManager()
     objects_deleted = MyInactiveManager()
@@ -25,6 +24,11 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+    
+    def get_db_user(self):
+        user = GrfcUser.objects.filter(username='db_user')
+        return user.pk
+
 
 
 class Position(BaseModel):
@@ -53,8 +57,7 @@ class Role(BaseModel):
 
 
 class GrfcUser(AbstractUser, BaseModel):
-    first_name = None
-    last_name = None
+    patronymic = models.CharField(max_length=200, verbose_name='Отчество', blank=True, null=True)
     username = models.CharField(max_length=200, verbose_name='Имя пользователя', unique=True)
     fio = models.CharField(max_length=200, verbose_name='ФИО')
     fio_r = models.CharField(max_length=200, verbose_name='ФИО род. падеж')
@@ -62,6 +65,8 @@ class GrfcUser(AbstractUser, BaseModel):
     fio_t = models.CharField(max_length=200, verbose_name='ФИО твор. падеж')
     position = models.ForeignKey(Position, on_delete=models.CASCADE, blank=True, null=True)
     role = models.ManyToManyField(Role)
+
+
 
 
 class Subdivision(BaseModel):
