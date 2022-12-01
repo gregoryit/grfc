@@ -7,7 +7,7 @@
       v-model="checked"
       @click="$router.push('/')"
     />
-    <span class="find-btn__text">Найдено({{ getFindedLen }})</span>
+    <span class="find-btn__text">Найдено ({{ getFindedLength }})</span>
   </label>
   <label class="filter-btn">
     <input
@@ -31,7 +31,7 @@ export default defineComponent({
       checked: 'find',
     };
   },
-  computed: mapGetters(['getFindedLen']),
+  computed: mapGetters(['getFindedLength']),
 });
 </script>
 

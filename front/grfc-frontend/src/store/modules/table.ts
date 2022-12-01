@@ -1,19 +1,17 @@
 import tableHeader, { ITableHeader } from './tableHeader';
 import tableSettings, { ITableSettings } from './tableSettings';
 
+import { fakeTable } from '../fakeTable';
+
 export interface ITableRow {
   id: number;
-  code: string;
-  name: string;
-  description: string;
-  author: string;
-  type: string;
-  status: string;
-  date: Date;
-  dateOfCreate: Date;
-  dateOfEdit: Date;
-  signatory: string;
-  correspondent: string;
+  number: string;
+  dateOfStart: Date;
+  dateOfEnd: Date;
+  owner: string;
+  radioService: string;
+  INN: number;
+  region: string;
 }
 
 export interface ITable {
@@ -30,50 +28,7 @@ export default {
   },
   state() {
     return {
-      data: [
-        {
-          id: 1,
-          code: '001',
-          name: 'mok2',
-          description: 'mokDesc1',
-          author: 'Зорина Виктория Романовна',
-          type: 'type1',
-          status: 'На ознакомлении',
-          date: new Date(),
-          dateOfCreate: new Date(),
-          dateOfEdit: new Date(),
-          signatory: '001',
-          correspondent: '001',
-        },
-        {
-          id: 2,
-          code: '002',
-          name: 'mok1',
-          description: 'mokDesc2',
-          author: 'Ермаков Максим Иванович',
-          type: 'type2',
-          status: 'Выполнено',
-          date: new Date(),
-          dateOfCreate: new Date(),
-          dateOfEdit: new Date(),
-          signatory: '002',
-          correspondent: '002',
-        },
-        {
-          id: 3,
-          code: '003',
-          name: 'mok3',
-          description: 'mokDesc3',
-          author: 'Белова Аиша Михайловна',
-          type: 'type3',
-          status: 'На рассмотрении',
-          date: new Date(),
-          dateOfCreate: new Date(),
-          dateOfEdit: new Date(),
-          signatory: '003',
-          correspondent: '003',
-        },
-      ],
+      data: fakeTable,
       selectedData: [],
     };
   },
@@ -111,7 +66,7 @@ export default {
     isRowSelected: (state: ITable) => (id: number) => {
       return state.selectedData.includes(id);
     },
-    getFindedLen: (state: ITable) => {
+    getFindedLength: (state: ITable) => {
       return state.data.length;
     },
     getDataByColumns: (state: ITable) => (id: number) => {

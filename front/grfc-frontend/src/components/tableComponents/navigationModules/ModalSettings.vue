@@ -95,15 +95,15 @@ export default defineComponent({
     closeSettings: Function,
   },
   methods: {
-    key(e: Event) {
-      console.log(e);
-    },
-    ...mapMutations(['selectColumn', 'unselectColumn']),
+    ...mapMutations({
+      selectColumn: 'tableHeader/selectColumn',
+      unselectColumn: 'tableHeader/unselectColumn',
+    }),
   },
   computed: {
     ...mapGetters({
-      selectedColumns: 'getSelectedColumns',
-      unselectedColumns: 'getUnselectedColumns',
+      selectedColumns: 'tableHeader/getSelectedColumns',
+      unselectedColumns: 'tableHeader/getUnselectedColumns',
     }),
   },
 });

@@ -2,26 +2,18 @@
   <thead class="table__header header">
     <tr class="header__row">
       <th class="header__cell"></th>
-      <th
-        class="header__cell"
-        v-for="item in getSelectedColumns"
-        :key="item.id"
-      >
+      <th class="header__cell" v-for="cell in selectedColumns" :key="cell.id">
         <div class="header__cell-wrapper">
-          <span class="header__text">{{ item.name }}</span>
+          <span class="header__text">{{ cell.name }}</span>
           <div class="header__buttons-wrapper">
-            <button v-if="item.hasSearch" class="header__sort-button">
-              <img :src="require('@/assets/table/body_search.svg')" />
-            </button>
             <button
-              v-if="item.imageSrc"
-              class="header__sort-toggle"
-              :class="{ down: item.direction }"
-              @click="selectSort(item.value)"
+              v-if="cell.searchType === 'default'"
+              class="header__sort-button"
             >
-              <img
-                :src="require('@/assets/table/body_' + item.imageSrc + '.svg')"
-              />
+              <img :src="require('@/assets/table/body_length.svg')" />
+            </button>
+            <button v-else class="header__sort-toggle">
+              <img :src="require('@/assets/table/body_date.svg')" />
             </button>
           </div>
         </div>
@@ -31,26 +23,15 @@
 </template>
 
 <script lang="ts">
-import { ITableHeaderColumn } from '@/store/modules/tableHeader';
 import { defineComponent } from 'vue';
 import { mapGetters } from 'vuex';
 
 export default defineComponent({
   name: 'BodyHeader',
-  data() {
-    return {};
-  },
-  methods: {
-    selectSort(value: string) {
-      this.getAllColumns.forEach((item: ITableHeaderColumn) => {
-        if (item.value === value && item.direction !== undefined) {
-          this.$store.commit('sortBy', [value, item.direction]);
-          item.direction = !item.direction;
-        }
-      });
-    },
-  },
-  computed: mapGetters(['getAllColumns', 'getSelectedColumns']),
+  methods: {},
+  computed: mapGetters({
+    selectedColumns: 'tableHeader/getSelectedColumns',
+  }),
 });
 </script>
 

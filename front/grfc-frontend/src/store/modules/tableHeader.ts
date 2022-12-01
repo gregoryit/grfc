@@ -1,97 +1,58 @@
-export interface ITableHeaderColumn {
+export interface ITableHeaderCell {
   id: number;
   value: string;
   name: string;
-  imageSrc?: string;
-  hasSearch?: boolean;
-  direction?: boolean;
+  searchType: 'data' | 'default';
 }
+
 export interface ITableHeader {
-  data: ITableHeaderColumn[];
+  data: ITableHeaderCell[];
   selectedColumns: number[];
 }
+
 export default {
+  namespaced: true,
   state() {
     return {
       data: [
         {
           id: 1,
-          value: 'code',
-          name: 'Код',
-          hasSearch: true,
-          direction: false,
+          value: 'number',
+          name: 'Номер',
+          searchType: 'default',
         },
         {
           id: 2,
-          value: 'name',
-          name: 'Наименование',
-          imageSrc: 'arrow',
-          direction: false,
+          value: 'dateOfStart',
+          name: 'Дата начала',
+          searchType: 'data',
         },
         {
           id: 3,
-          value: 'description',
-          name: 'Описание',
-          imageSrc: 'length',
-          direction: false,
+          value: 'dateOfEnd',
+          name: 'Дата конца',
+          searchType: 'data',
         },
         {
           id: 4,
-          value: 'author',
-          name: 'Автор',
-          hasSearch: true,
-          imageSrc: 'arrow',
-          direction: false,
+          value: 'owner',
+          name: 'Владелец',
+          searchType: 'default',
         },
         {
           id: 5,
-          value: 'type',
-          name: 'Тип',
-          imageSrc: 'length',
-          direction: false,
+          value: 'INN',
+          name: 'ИНН',
+          searchType: 'default',
         },
         {
           id: 6,
-          value: 'status',
-          name: 'Статус',
-          hasSearch: true,
-          imageSrc: 'arrow',
-          direction: false,
-        },
-        {
-          id: 7,
-          value: 'date',
-          name: 'Дата',
-          imageSrc: 'date',
-        },
-        {
-          id: 8,
-          value: 'dateOfCreate',
-          name: 'Дата создания',
-          imageSrc: 'date',
-        },
-        {
-          id: 9,
-          value: 'dateOfEdit',
-          name: 'Дата изменения',
-          imageSrc: 'date',
-        },
-        {
-          id: 10,
-          value: 'signatory',
-          name: 'Подписант',
-          imageSrc: 'arrow',
-          direction: false,
-        },
-        {
-          id: 11,
-          value: 'correspondent',
-          name: 'Корреспондент',
-          imageSrc: 'arrow',
-          direction: false,
+          value: 'region',
+          name: 'Регион',
+          searchType: 'default',
         },
       ],
-      selectedColumns: [1, 2, 3, 4, 5, 6, 7],
+      selectedColumns: [1, 2, 3, 4, 5, 6],
     };
   },
   mutations: {
@@ -99,13 +60,14 @@ export default {
       state.selectedColumns.push(id);
     },
     unselectColumn(state: ITableHeader, id: number) {
+      if (state.selectedColumns.length === 1) return;
       state.selectedColumns = state.selectedColumns.filter(
         (columnId) => columnId !== id
       );
     },
   },
   getters: {
-    getAllColumns(state: ITableHeader) {
+    getAllCells(state: ITableHeader) {
       return state.data;
     },
     getSelectedColumns(state: ITableHeader) {
