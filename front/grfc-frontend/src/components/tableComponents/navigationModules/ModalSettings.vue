@@ -23,6 +23,7 @@
                 @click="selectColumn(column.id)"
               >
                 {{ column.name }}
+                <span class="arrow right"></span>
               </button>
             </div>
           </div>
@@ -34,8 +35,9 @@
                 v-for="column in selectedColumns"
                 :key="column.id"
                 @click="unselectColumn(column.id)"
-              >
+                >
                 {{ column.name }}
+                <span class="arrow left"></span>
               </button>
             </div>
           </div>
@@ -230,5 +232,30 @@ export default defineComponent({
 }
 .selectors_btn {
   color: #6d7095;
+}
+.arrow {
+  position: absolute;
+  width: 1.5vmin;
+  height: 1.5vmin;
+  background: transparent;
+  border-top: 0.4vmin solid #6d7095;
+  border-right: 0.4vmin solid #6d7095;
+  box-shadow: 0 0 0 lightgray;
+  transition: all 200ms ease;
+  margin: 20px 0 0 15px;
+
+  &.left {
+    transform: translate3d(0, -50%, 0) rotate(-135deg);
+  }
+
+  &.right {
+    transform: translate3d(0, -50%, 0) rotate(45deg);
+  }
+
+  &:hover {
+    border-color: #6d7099;
+    box-shadow: 0.5vmin -0.5vmin 0 #8d91ba;
+  }
+
 }
 </style>
