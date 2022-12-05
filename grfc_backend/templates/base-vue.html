@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block html %}
+<!doctype html>
+<html lang="">
+
+<head>{% block head %}{{ block.super }}{% endblock %}<script defer="defer"
+        src="/static/dist/js/chunk-vendors.c89f170c.js"></script>
+    <script defer="defer" src="/static/dist/js/app.e5c05dc2.js"></script>
+    <link href="/static/dist/css/app.3c3c05e9.css" rel="stylesheet">
+</head>
+
+<body>{% block body %} {{ block.super }}<div id="app"></div>{% csrf_token %} {% endblock %}</body>
+
+</html>{% endblock %}

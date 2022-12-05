@@ -1,0 +1,10 @@
+{% extends 'base-vue.html' %}
+
+{% block title %}
+Авторизация
+{% endblock%}
+
+{% block body %}
+{% csrf_token %}
+{{ block.super }}
+{% endblock %}
