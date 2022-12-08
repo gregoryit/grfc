@@ -1,5 +1,6 @@
 <template>
-  <div class="NotificationsDropdown__wrapper">
+  <transition-group name="fade">
+  <div id="NotificationsDropdown__wrapper">
     <div class="NotificationsDropdown__body">
       <div class="NotificationsDropdown__content">
 
@@ -43,32 +44,24 @@
         </div>
 
         <a href="" class="NotificationDropdown__open-all">Открыть все...</a>
-
-
-
-
-
         </div>
       </div>
     </div>
+  </transition-group>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   name: 'NotificationsDropdown',
 };
-
-
-
 </script>
 
 <style lang="scss" scoped>
 
-
-.NotificationsDropdown__wrapper {
+#NotificationsDropdown__wrapper {
   position: fixed;
+  margin-top: 445px;
   margin-left: 937px;
-
 
 }
 .NotificationsDropdown__body {
@@ -76,7 +69,6 @@ export default {
   flex-direction: column;
   width: 235px;
   height: 368px;
-  margin-top: 70px;
   background: linear-gradient(180deg, rgba(0, 8, 85, 0.6) 0%, #000855 100%);;
 }
 

@@ -2,7 +2,7 @@
   <div class="profile-bar__wrapper">
     <div class="profile-bar">
       <div class="profile-bar__notification">
-        <button name="notification" type="button" class="notification__button">
+        <button name="notification" type="button" id="notification__button">
           <figure class="notification__figure">
             <img
               src="../../assets/header/notification_btn.svg"
@@ -42,11 +42,16 @@
       </div>
     </div>
   </div>
+  <NotificationsDropdown />
 </template>
 
 <script lang="ts">
+import NotificationsDropdown from '../headerComponents/NotificationsDropdown.vue';
 export default {
   name: 'ProfileBar',
+  components: {
+    NotificationsDropdown,
+  },
 };
 </script>
 
@@ -62,7 +67,7 @@ export default {
   justify-content: space-between;
 }
 
-.notification__button {
+#notification__button {
   background-color: transparent;
   border: 0;
   outline: 0;
