@@ -16,7 +16,7 @@
           key === 'date' || key === 'dateOfCreate' || key === 'dateOfEdit'
         "
       >
-        {{ formateDate(item as Date) }}
+        {{ formateDate(item) }}
       </span>
       <span v-else>{{ item }}</span>
     </td>
@@ -26,7 +26,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { format } from 'date-fns';
-import { mapState } from 'vuex';
 import { ITableRow } from '@/store/modules/table';
 
 export default defineComponent({
@@ -48,7 +47,6 @@ export default defineComponent({
         this.$store.commit('toggleRowSelection', this.data?.id);
       },
     },
-    ...mapState(['table']),
     filteredData(): ITableRow {
       return this.$store.getters.getDataByColumns(this.data?.id);
     },

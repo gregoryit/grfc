@@ -11,7 +11,7 @@ import Menu from './contentComponents/Menu.vue';
 import SideBar from './contentComponents/SideBar.vue';
 import Table from './MainTable.vue';
 export default {
-  name: 'AppContent',
+  name: 'MainContent',
   components: {
     Table,
     SideBar,

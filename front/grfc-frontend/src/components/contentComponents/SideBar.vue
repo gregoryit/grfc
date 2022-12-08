@@ -12,25 +12,32 @@
         :class="`${button.name}__img`"
         :src="require('@/assets' + button.imageSrc)"
         :alt="button.name"
-        @click.stop
       />
-      <SideDropdown
+      <DropdownWindow
         v-if="checked === button.name"
         :closeModal="closeModal"
-        :checked="checked"
-      />
+        :buttonClass="button.name"
+      >
+        <div class="side-dropdown">
+          <div class="first-layer">Форма 1.1</div>
+          <div class="first-layer">Форма 1.1</div>
+          <div class="first-layer">Форма 1.1</div>
+          <div class="first-layer">Форма 1.1</div>
+          <div class="first-layer">Форма 1.1</div>
+        </div>
+      </DropdownWindow>
     </label>
   </form>
 </template>
 
 <script lang="ts">
-import SideDropdown from './SideDropdown.vue';
+import DropdownWindow from '../UI/DropdownWindow.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'ContentSideBar',
   components: {
-    SideDropdown,
+    DropdownWindow,
   },
   data() {
     return {
@@ -61,6 +68,7 @@ export default defineComponent({
       else this.checked = target.id;
     },
     closeModal() {
+      console.log(3);
       this.checked = '';
     },
   },
@@ -101,5 +109,16 @@ export default defineComponent({
 }
 .active {
   background-color: #93adf2;
+}
+.side-dropdown {
+  width: 184px;
+  height: 210px;
+  background-color: #93adf2;
+  position: absolute;
+  display: flex;
+  left: 55px;
+  flex-direction: column;
+  z-index: 1000;
+  //top: 80px;
 }
 </style>

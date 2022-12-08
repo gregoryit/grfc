@@ -8,7 +8,7 @@
 <script lang="ts">
 import TableNavigation from './tableComponents/TableNavigation.vue';
 export default {
-  name: 'AppTable',
+  name: 'MainTable',
   components: {
     TableNavigation,
   },

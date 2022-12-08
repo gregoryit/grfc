@@ -1,29 +1,27 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import Main from '@/components/Main.vue';
-import Auth from '@/views/Auth.vue';
-import MainFilters from '@/components/MainFilters.vue';
-import TableBody from '@/components/tableComponents/TableBody.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'main',
-    component: Main,
+    component: () => import('@/components/Main.vue'),
     children: [
       {
         path: '/',
-        component: TableBody,
+        name: 'tableBody',
+        component: () => import('@/components/tableComponents/TableBody.vue'),
       },
       {
         path: 'filter',
-        component: MainFilters,
+        name: 'mainFilters',
+        component: () => import('@/components/MainFilters.vue'),
       },
     ],
   },
   {
     path: '/auth',
     name: 'auth',
-    component: Auth,
+    component: () => import('@/views/Auth.vue'),
   },
 ];
 

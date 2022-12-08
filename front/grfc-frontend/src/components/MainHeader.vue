@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <BurgerMenu @click="$store.commit('toggleMenu')" />
+    <BurgerMenu />
     <SearchBar />
     <ProfileBar />
   </header>
@@ -11,14 +11,11 @@ import BurgerMenu from './headerComponents/BurgerMenu.vue';
 import SearchBar from './headerComponents/SeachBar.vue';
 import ProfileBar from './headerComponents/ProfileBar.vue';
 export default {
-  name: 'AppHeader',
+  name: 'MainHeader',
   components: {
     BurgerMenu,
     SearchBar,
     ProfileBar,
-  },
-  props: {
-    toggleMenu: Function,
   },
 };
 </script>

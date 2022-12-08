@@ -63,6 +63,9 @@ export default {
     },
   },
   getters: {
+    getPaginatedData: (state: ITable) => {
+      return state.data.slice(0, state.tableSettings.rowsInTable);
+    },
     isRowSelected: (state: ITable) => (id: number) => {
       return state.selectedData.includes(id);
     },

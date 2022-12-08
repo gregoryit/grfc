@@ -10,7 +10,7 @@ import { defineComponent } from 'vue';
 import Header from './MainHeader.vue';
 import Content from './MainContent.vue';
 export default defineComponent({
-  name: 'AppMain',
+  name: 'MainPage',
   components: {
     Header,
     Content,

@@ -7,7 +7,7 @@ export interface ITableSettings {
 export default {
   state() {
     return {
-      rowsInTable: 3,
+      rowsInTable: 10,
       fontSize: 12,
       padding: 5,
     };

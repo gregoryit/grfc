@@ -2,14 +2,14 @@
   <table class="table">
     <BodyHeader />
     <tbody class="table__body body">
-      <BodyRow v-for="row in table.data" :key="row.id" :data="row" />
+      <BodyRow v-for="row in data" :key="row.id" :data="row" />
     </tbody>
   </table>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { mapState } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 import BodyHeader from './bodyModules/BodyHeader.vue';
 import BodyRow from './bodyModules/BodyRow.vue';
 
@@ -21,6 +21,9 @@ export default defineComponent({
   },
   computed: {
     ...mapState(['table']),
+    ...mapGetters({
+      data: 'getPaginatedData',
+    }),
   },
 });
 </script>

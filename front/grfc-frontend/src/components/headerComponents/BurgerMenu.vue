@@ -1,5 +1,5 @@
 <template>
-  <div class="burger-menu">
+  <div class="burger-menu" @click="$store.commit('toggleMenu')">
     <button
       name="burger-menu__button"
       type="button"
@@ -25,7 +25,7 @@ export default {
   justify-content: space-between;
   width: 30px;
   height: 24px;
-  outline: 0 !important;
+  outline: 0;
   border: 0;
   background-color: transparent;
   cursor: pointer;
