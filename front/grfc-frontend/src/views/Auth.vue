@@ -60,17 +60,15 @@ export default defineComponent({
   height: 100vh;
   background: linear-gradient(to bottom, #0061e9 30%, #00398e 70%);
   opacity: 0.2;
+  background-size: cover;
   z-index: 0;
 }
 .auth {
   width: 100vw;
   height: 100vh;
-  background-image: url(../assets/auth/auth-bg.jpg);
+  background: url(../assets/auth/auth-bg.jpg), no-repeat center;
   background-size: cover;
-}
-p {
-  font-family: 'Raleway';
-  font-style: normal;
+  padding-top: 173px;
 }
 .auth__content {
   position: relative;
@@ -78,7 +76,7 @@ p {
   height: 400px;
   background: linear-gradient(180deg, #000955 0%, rgba(0, 70, 85, 0.9) 100%);
   border-radius: 6px;
-  margin: 173px auto 0;
+  margin: auto;
   z-index: 1000;
 }
 .auth__title {
@@ -88,6 +86,8 @@ p {
   font-size: 25px;
   line-height: 29px;
   color: rgba(255, 255, 255, 0.8);
+  font-family: 'Raleway';
+  font-style: normal;
 }
 .form-control {
   margin-top: 36px;
@@ -95,11 +95,6 @@ p {
   width: 375px;
   height: 42px;
   border: none;
-}
-.form-control:last-child {
-  margin-top: 18px;
-}
-input {
   text-indent: 18px;
   font-family: 'Raleway';
   font-style: normal;
@@ -107,6 +102,9 @@ input {
   font-size: 20px;
   line-height: 23px;
   letter-spacing: 0.08em;
+}
+.form-control:last-child {
+  margin-top: 18px;
 }
 .auth__search-form {
   text-align: center;
@@ -147,5 +145,7 @@ input {
   text-align: center;
   color: #ffffff;
   opacity: 0.5;
+  font-family: 'Raleway';
+  font-style: normal;
 }
 </style>

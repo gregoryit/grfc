@@ -5,6 +5,7 @@
 <script lang="ts">
 export default {
   name: 'App',
+  
 };
 </script>
 
@@ -18,7 +19,6 @@ export default {
 }
 
 #app {
-  max-width: 1440px;
   margin: auto;
   position: relative;
   height: 100vh;
