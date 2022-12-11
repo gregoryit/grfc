@@ -1,8 +1,8 @@
 <template>
   <div class="profile-bar__wrapper">
     <div class="profile-bar">
-      <div class="profile-bar__notification">
-        <button name="notification" type="button" class="notification__button">
+      <div class="profile-bar__notification" @click="toggleNotifications">
+        <button name="notification" type="button" id="notification__button">
           <figure class="notification__figure">
             <img
               src="../../assets/header/notification_btn.svg"
@@ -12,7 +12,7 @@
           </figure>
         </button>
       </div>
-
+      <ProfileDropdown v-if="isNotificationsOpen" @toggle="toggleNotifications" />
       <div class="profile-bar__user-photo">
         <figure class="user-photo__figure">
           <img
@@ -22,21 +22,17 @@
           />
         </figure>
       </div>
-
       <div class="profile-bar__username">Синицин Александр</div>
-
       <div class="profile-bar_arrow-down">
         <button
           name="arrow_down"
           type="button"
-          class="profile-bar__arrow-down-button"
-        >
+          class="profile-bar__arrow-down-button">
           <figure class="profile-bar_arrow_down__figure">
             <img
               src="../../assets/menu/arrow_down.svg"
               alt=""
-              class="profile-bar__arrow-down__img"
-            />
+              class="profile-bar__arrow-down__img"/>
           </figure>
         </button>
       </div>
@@ -45,9 +41,23 @@
 </template>
 
 <script lang="ts">
-export default {
+import ProfileDropdown from '@/components/headerComponents/ProfileDropdown.vue';
+import { defineComponent } from "vue";
+export default defineComponent( {
+  components: { ProfileDropdown },
   name: 'ProfileBar',
-};
+  data () {
+    return {
+      isNotificationsOpen: false,
+    };
+  },
+  methods: {
+    toggleNotifications() {
+      this.isNotificationsOpen = !this.isNotificationsOpen;
+    }
+  }
+});
+
 </script>
 
 <style lang="scss" scoped>
@@ -62,7 +72,7 @@ export default {
   justify-content: space-between;
 }
 
-.notification__button {
+#notification__button {
   background-color: transparent;
   border: 0;
   outline: 0;
