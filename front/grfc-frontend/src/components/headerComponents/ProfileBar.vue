@@ -1,7 +1,10 @@
 <template>
   <div class="profile-bar__wrapper">
     <div class="profile-bar">
-      <ProfileDropdown v-if="isNotificationsOpen" @toggle="toggleNotifications" />
+      <ProfileDropdown
+        v-if="isNotificationsOpen"
+        @toggle="toggleNotifications"
+      />
       <div class="profile-bar__notification" @click="toggleNotifications">
         <button name="notification" type="button" id="notification__button">
           <figure class="notification__figure">
@@ -24,16 +27,18 @@
         </figure>
       </div>
       <div class="profile-bar__username">Синицин Александр</div>
-      <div class="profile-bar_arrow-down" @click="toggleMenu" >
+      <div class="profile-bar_arrow-down" @click="toggleMenu">
         <button
           name="arrow_down"
           type="button"
-          class="profile-bar__arrow-down-button">
+          class="profile-bar__arrow-down-button"
+        >
           <figure class="profile-bar_arrow_down__figure">
             <img
               src="../../assets/menu/arrow_down.svg"
               alt=""
-              class="profile-bar__arrow-down__img"/>
+              class="profile-bar__arrow-down__img"
+            />
           </figure>
         </button>
       </div>
@@ -43,15 +48,15 @@
 
 <script lang="ts">
 import ProfileDropdown from '@/components/headerComponents/ProfileDropdown.vue';
-import MenuDropdown from '@/components/headerComponents/ProfileDropdown2.vue';
-import { defineComponent } from "vue";
-export default defineComponent( {
-  components: { 
+import MenuDropdown from '@/components/headerComponents/ProfileMenuDropdown.vue';
+import { defineComponent } from 'vue';
+export default defineComponent({
+  components: {
     ProfileDropdown,
     MenuDropdown,
   },
   name: 'ProfileBar',
-  data () {
+  data() {
     return {
       isNotificationsOpen: false,
       isMenuOpen: false,
@@ -61,12 +66,11 @@ export default defineComponent( {
     toggleNotifications() {
       this.isNotificationsOpen = !this.isNotificationsOpen;
     },
-    toggleMenu(){
+    toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
-    }
-  }
+    },
+  },
 });
-
 </script>
 
 <style lang="scss" scoped>
