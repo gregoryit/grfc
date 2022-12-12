@@ -35,7 +35,7 @@
                 v-for="column in selectedColumns"
                 :key="column.id"
                 @click="unselectColumn(column.id)"
-                >
+              >
                 {{ column.name }}
                 <span class="arrow left"></span>
               </button>
@@ -256,6 +256,5 @@ export default defineComponent({
     border-color: #6d7099;
     box-shadow: 0.5vmin -0.5vmin 0 #8d91ba;
   }
-
 }
 </style>

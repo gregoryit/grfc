@@ -16,7 +16,7 @@
           key === 'date' || key === 'dateOfCreate' || key === 'dateOfEdit'
         "
       >
-        {{ formateDate(item) }}
+        {{ formateDate(item as Date) }}
       </span>
       <span v-else>{{ item }}</span>
     </td>

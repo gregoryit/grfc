@@ -17,12 +17,12 @@ export default defineComponent({
     hideNav() {
       window.onclick = (event: Event) => {
         const target = event.target as HTMLElement;
-        console.log(target.id, this.buttonClass);
-        if (target.id) console.log(2);
+        //console.log(target.id, this.buttonClass);
+        //if (target.id) console.log(2);
         //console.log(!target.matches(`.${this.buttonClass}`));
         if (target.id !== this.buttonClass) {
           if (this.closeModal) {
-            console.log(1);
+            //console.log(1);
             this.closeModal();
           }
         }

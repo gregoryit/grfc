@@ -1,7 +1,10 @@
 <template>
   <div id="notifications-dropdown__wrapper">
     <div class="notifications-dropdown__body">
-      <button @click="$emit('toggle')" class="notifications-dropdown__close-btn">
+      <button
+        @click="$emit('toggle')"
+        class="notifications-dropdown__close-btn"
+      >
         <img
           src="../../assets/header/close_btn.svg"
           alt="X"
