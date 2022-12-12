@@ -1,6 +1,7 @@
 <template>
   <div class="profile-bar__wrapper">
     <div class="profile-bar">
+      <ProfileDropdown v-if="isNotificationsOpen" @toggle="toggleNotifications" />
       <div class="profile-bar__notification" @click="toggleNotifications">
         <button name="notification" type="button" id="notification__button">
           <figure class="notification__figure">
@@ -12,7 +13,7 @@
           </figure>
         </button>
       </div>
-      <ProfileDropdown v-if="isNotificationsOpen" @toggle="toggleNotifications" />
+      <MenuDropdown v-if="isMenuOpen" @toggle="toggleMenu" />
       <div class="profile-bar__user-photo">
         <figure class="user-photo__figure">
           <img
@@ -23,7 +24,7 @@
         </figure>
       </div>
       <div class="profile-bar__username">Синицин Александр</div>
-      <div class="profile-bar_arrow-down">
+      <div class="profile-bar_arrow-down" @click="toggleMenu" >
         <button
           name="arrow_down"
           type="button"
@@ -42,18 +43,26 @@
 
 <script lang="ts">
 import ProfileDropdown from '@/components/headerComponents/ProfileDropdown.vue';
+import MenuDropdown from '@/components/headerComponents/ProfileDropdown2.vue';
 import { defineComponent } from "vue";
 export default defineComponent( {
-  components: { ProfileDropdown },
+  components: { 
+    ProfileDropdown,
+    MenuDropdown,
+  },
   name: 'ProfileBar',
   data () {
     return {
       isNotificationsOpen: false,
+      isMenuOpen: false,
     };
   },
   methods: {
     toggleNotifications() {
       this.isNotificationsOpen = !this.isNotificationsOpen;
+    },
+    toggleMenu(){
+      this.isMenuOpen = !this.isMenuOpen;
     }
   }
 });
