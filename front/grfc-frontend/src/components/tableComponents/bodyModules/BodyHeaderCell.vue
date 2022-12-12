@@ -1,10 +1,10 @@
 <template>
   <th class="header__cell">
     <div class="header__cell-wrapper">
-      <span class="header__text">{{ cell.name }}</span>
+      <span class="header__text">{{ cell?.name }}</span>
       <div class="header__buttons-wrapper">
         <label
-          v-if="cell.searchType === 'default'"
+          v-if="cell?.searchType === 'default'"
           :for="cell.value"
           @click="toggleModal"
         >
@@ -36,7 +36,7 @@
             </div>
           </DropdownWindow>
         </label>
-        <button v-else class="header__sort" :class="cell.value">
+        <button v-else class="header__sort" :class="cell?.value">
           <img :src="require('@/assets/table/body_date.svg')" />
         </button>
       </div>
@@ -127,7 +127,6 @@ export default defineComponent({
   position: absolute;
   border: 1px solid black;
   border-radius: 5px;
-  width: 98%;
   top: calc(100% + 2px);
   right: 2px;
   display: flex;
@@ -149,6 +148,7 @@ export default defineComponent({
     width: 100%;
   }
   &__text {
+    white-space: nowrap;
     height: fit-content;
     color: #6d7095;
   }
