@@ -6,33 +6,73 @@
         <label
           v-if="cell?.searchType === 'default'"
           :for="cell.value"
-          @click="toggleModal"
+          class="header__sort"
         >
-          <input class="header__input" type="checkbox" :id="cell.value" />
+          <input
+            class="header__input"
+            type="checkbox"
+            :id="cell.value"
+            @click="toggleModal"
+          />
           <img
+            v-if="sortColumn.key !== cell.value"
             :src="require('@/assets/table/body_length.svg')"
             :id="cell.value"
+          />
+          <img
+            v-else-if="
+              sortColumn.key === cell.value && sortColumn.direction === true
+            "
+            :src="require('@/assets/table/body_arrow.svg')"
+            :id="cell.value"
+          />
+          <img
+            v-else-if="
+              sortColumn.key === cell.value && sortColumn.direction === false
+            "
+            :src="require('@/assets/table/body_arrow.svg')"
+            :id="cell.value"
+            style="transform: rotate(180deg)"
           />
           <DropdownWindow
             v-if="isModalActive"
             :closeModal="closeModal"
-            :buttonClass="cell.value"
+            :buttonId="cell.value"
           >
             <div class="header__dropdown dropdown">
-              <div class="dropdown__search">
-                <label></label>
-                <input type="text" class="dropdown__input" />
-              </div>
-              <div class="dropdown__sort">
+              <button
+                class="dropdown__sort"
+                @click="sortBy([cell?.value, true])"
+              >
                 <img :src="require('@/assets/table/body_arrow.svg')" />
                 <span class="dropdown__text">По возрастанию</span>
-                <span class="dropdown__remove">x</span>
-              </div>
-              <div class="dropdown__sort">
-                <img :src="require('@/assets/table/body_arrow.svg')" />
+                <span
+                  class="dropdown__remove"
+                  v-show="
+                    sortColumn.key === cell.value &&
+                    sortColumn.direction === true
+                  "
+                  >x</span
+                >
+              </button>
+              <button
+                class="dropdown__sort"
+                @click="sortBy([cell?.value, false])"
+              >
+                <img
+                  style="transform: rotate(180deg)"
+                  :src="require('@/assets/table/body_arrow.svg')"
+                />
                 <span class="dropdown__text">По убыванию</span>
-                <span class="dropdown__remove">x</span>
-              </div>
+                <span
+                  class="dropdown__remove"
+                  v-show="
+                    sortColumn.key === cell.value &&
+                    sortColumn.direction === false
+                  "
+                  >x</span
+                >
+              </button>
             </div>
           </DropdownWindow>
         </label>
@@ -47,6 +87,7 @@
 <script lang="ts">
 import DropdownWindow from '@/components/UI/DropdownWindow.vue';
 import { defineComponent } from 'vue';
+import { mapGetters, mapMutations } from 'vuex';
 export default defineComponent({
   name: 'BodyHeaderCell',
   components: { DropdownWindow },
@@ -59,12 +100,20 @@ export default defineComponent({
     };
   },
   methods: {
+    ...mapMutations({
+      sortBy: 'sortBy',
+    }),
     toggleModal() {
       this.isModalActive = true;
     },
     closeModal() {
       this.isModalActive = false;
     },
+  },
+  computed: {
+    ...mapGetters({
+      sortColumn: 'getSortColumn',
+    }),
   },
 });
 </script>
@@ -117,9 +166,6 @@ export default defineComponent({
     &:hover {
       background-color: #dddddd;
     }
-    &.down {
-      transform: rotate(180deg);
-    }
   }
 }
 .dropdown {
@@ -143,6 +189,12 @@ export default defineComponent({
     display: flex;
     gap: 5px;
     align-items: center;
+    border: 0;
+    background: 0;
+    cursor: pointer;
+    &:hover {
+      background: #e8e8e8;
+    }
   }
   &__input {
     width: 100%;

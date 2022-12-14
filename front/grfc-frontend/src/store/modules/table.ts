@@ -17,6 +17,10 @@ export interface ITableRow {
 export interface ITable {
   data: ITableRow[];
   selectedData: number[];
+  sortColumn: {
+    key: string | keyof ITableRow;
+    direction: boolean;
+  };
   tableHeader: ITableHeader;
   tableSettings: ITableSettings;
 }
@@ -30,6 +34,10 @@ export default {
     return {
       data: fakeTable,
       selectedData: [],
+      sortColumn: {
+        key: '',
+        direction: false,
+      },
     };
   },
   mutations: {
@@ -53,6 +61,7 @@ export default {
       payload: [value: keyof ITableRow, direction: boolean]
     ) {
       const [value, direction] = payload;
+      state.sortColumn = { key: value, direction: direction };
       state.data = state.data.sort((a, b) => {
         if (direction) {
           return a[value] >= b[value] ? 1 : -1;
@@ -63,13 +72,16 @@ export default {
     },
   },
   getters: {
-    getPaginatedData: (state: ITable) => {
+    getSortColumn(state: ITable) {
+      return state.sortColumn;
+    },
+    getPaginatedData(state: ITable) {
       return state.data.slice(0, state.tableSettings.rowsInTable);
     },
     isRowSelected: (state: ITable) => (id: number) => {
       return state.selectedData.includes(id);
     },
-    getFindedLength: (state: ITable) => {
+    getFindedLength(state: ITable) {
       return state.data.length;
     },
     getDataByColumns: (state: ITable) => (id: number) => {

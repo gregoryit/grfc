@@ -4,19 +4,22 @@
       v-for="button in buttons"
       :key="button.id"
       :for="button.name"
-      @click="toggleSidedrop"
-      :class="{ active: checked === button.name }"
+      :class="{
+        active: checked === button.name,
+        [button.name + '__img']: true,
+      }"
     >
-      <input type="checkbox" class="checkbox" :id="button.name" />
-      <img
-        :class="`${button.name}__img`"
-        :src="require('@/assets' + button.imageSrc)"
-        :alt="button.name"
+      <input
+        type="radio"
+        class="checkbox"
+        :id="button.name"
+        @click="openSidedrop"
+        v-model="checked"
       />
       <DropdownWindow
         v-if="checked === button.name"
         :closeModal="closeModal"
-        :buttonClass="button.name"
+        :buttonId="button.name"
       >
         <div class="side-dropdown">
           <div class="first-layer">Форма 1.1</div>
@@ -42,33 +45,19 @@ export default defineComponent({
   data() {
     return {
       buttons: [
-        {
-          id: 1,
-          name: 'search',
-          imageSrc: '/header/search_btn.svg',
-        },
-        {
-          id: 2,
-          name: 'folder',
-          imageSrc: '/menu/menu_folder.svg',
-        },
-        {
-          id: 3,
-          name: 'document',
-          imageSrc: '/menu/menu_doc.svg',
-        },
+        { id: 1, name: 'search' },
+        { id: 2, name: 'folder' },
+        { id: 3, name: 'document' },
       ],
       checked: '',
     };
   },
   methods: {
-    toggleSidedrop(event: Event) {
+    openSidedrop(event: Event) {
       const target = event.target as HTMLInputElement;
-      if (this.checked === target.id) this.checked = '';
-      else this.checked = target.id;
+      this.checked = target.id;
     },
     closeModal() {
-      console.log(3);
       this.checked = '';
     },
   },
@@ -96,15 +85,29 @@ export default defineComponent({
   }
 }
 .search__img {
-  width: 20px;
+  background-image: url('../../assets/header/search_btn.svg');
+  background-size: 20px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .folder__img {
-  width: 25px;
+  background-image: url('../../assets/menu/menu_folder.svg');
+  background-size: 25px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .document__img {
-  width: 18px;
+  background-image: url('../../assets/menu/menu_doc.svg');
+  background-size: 18px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .checkbox {
+  width: 100%;
+  height: 100%;
   display: none;
 }
 .active {

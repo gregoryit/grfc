@@ -48,7 +48,7 @@
 
 <script lang="ts">
 import NotificationsDropdown from '@/components/headerComponents/NotificationsDropdown.vue';
-import MenuDropdown from '@/components/headerComponents/ProfileMenuDropdown.vue';
+import MenuDropdown from '@/components/headerComponents/ProfileDropdown.vue';
 import { defineComponent } from 'vue';
 export default defineComponent({
   components: {

@@ -8,21 +8,18 @@ export default defineComponent({
   name: 'DropdownWindow',
   props: {
     closeModal: Function,
-    buttonClass: String,
+    buttonId: String,
   },
   mounted() {
-    this.hideNav();
+    this.hideDropdown();
   },
   methods: {
-    hideNav() {
+    hideDropdown() {
       window.onclick = (event: Event) => {
         const target = event.target as HTMLElement;
-        //console.log(target.id, this.buttonClass);
-        //if (target.id) console.log(2);
-        //console.log(!target.matches(`.${this.buttonClass}`));
-        if (target.id !== this.buttonClass) {
+        console.log(target, this.buttonId, 2);
+        if (target.id !== this.buttonId) {
           if (this.closeModal) {
-            //console.log(1);
             this.closeModal();
           }
         }
@@ -30,7 +27,7 @@ export default defineComponent({
     },
   },
   beforeUnmount() {
-    this.hideNav();
+    this.hideDropdown();
   },
 });
 </script>

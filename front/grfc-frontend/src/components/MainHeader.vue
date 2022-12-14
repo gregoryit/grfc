@@ -1,21 +1,21 @@
 <template>
   <header class="header">
     <BurgerMenu />
-    <SearchBar />
-    <ProfileBar />
+    <Search />
+    <Profile />
   </header>
 </template>
 
 <script lang="ts">
 import BurgerMenu from './headerComponents/BurgerMenu.vue';
-import SearchBar from './headerComponents/SeachBar.vue';
-import ProfileBar from './headerComponents/ProfileBar.vue';
+import Search from './headerComponents/Seach.vue';
+import Profile from './headerComponents/Profile.vue';
 export default {
   name: 'MainHeader',
   components: {
     BurgerMenu,
-    SearchBar,
-    ProfileBar,
+    Search,
+    Profile,
   },
 };
 </script>
