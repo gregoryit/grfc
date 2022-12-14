@@ -12,40 +12,21 @@
         />
       </button>
       <div class="notifications-dropdown__content">
-        <div class="notifications-dropdown__item">
+        <div
+          class="notifications-dropdown__item"
+          v-for="notification in getAllNotify"
+          :key="notification.id"
+        >
           <div class="notifications-dropdown__info">
-            <div class="notifications-dropdown__title">Название</div>
-            <div class="notifications-dropdown__time">now</div>
+            <div class="notifications-dropdown__title">
+              {{ notification.title }}
+            </div>
+            <div class="notifications-dropdown__time">
+              {{ formateDate(notification.data) }}
+            </div>
           </div>
           <div class="notifications-dropdown__description">
-            Описание... <br />...
-          </div>
-        </div>
-        <div class="notifications-dropdown__item">
-          <div class="notifications-dropdown__info">
-            <div class="notifications-dropdown__title">Название</div>
-            <div class="notifications-dropdown__time">9:30 AM</div>
-          </div>
-          <div class="notifications-dropdown__description">
-            Описание... <br />...
-          </div>
-        </div>
-        <div class="notifications-dropdown__item">
-          <div class="notifications-dropdown__info">
-            <div class="notifications-dropdown__title">Название</div>
-            <div class="notifications-dropdown__time">9:25 AM</div>
-          </div>
-          <div class="notifications-dropdown__description">
-            Описание... <br />...
-          </div>
-        </div>
-        <div class="notifications-dropdown__item">
-          <div class="notifications-dropdown__info">
-            <div class="notifications-dropdown__title">Название</div>
-            <div class="notifications-dropdown__time">9:20 AM</div>
-          </div>
-          <div class="notifications-dropdown__description">
-            Описание... <br />...
+            {{ notification.subtitle }} <br />
           </div>
         </div>
         <a href="" class="notifications-dropdown__open-all" target="#"
@@ -58,8 +39,17 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { mapGetters } from 'vuex';
+import { format } from 'date-fns';
+
 export default defineComponent({
   name: 'ProfileDropdown',
+  methods: {
+    formateDate(date: Date) {
+      return format(date, 'dd.MM.yyyy');
+    },
+  },
+  computed: mapGetters(['getAllNotify']),
 });
 </script>
 

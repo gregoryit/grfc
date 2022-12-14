@@ -3,11 +3,13 @@ import menu, { IStateMenu } from './modules/menu';
 import { createStore, Store, useStore as baseUseStore } from 'vuex';
 import { InjectionKey } from 'vue';
 import theme, { IStateTheme } from './modules/theme';
+import headerNotifications, { INotifyState } from './modules/headerNotifications';
 
 export interface State {
   theme: IStateTheme;
   menu: IStateMenu;
   table: ITable;
+  headerNotifications: INotifyState;
 }
 
 export const key: InjectionKey<Store<State>> = Symbol();
@@ -17,6 +19,7 @@ const store = createStore<State>({
     theme,
     menu,
     table,
+    headerNotifications,
   },
 });
 
