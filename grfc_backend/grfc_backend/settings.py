@@ -26,8 +26,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.228', 'gregory.fun', '91.214.242.240', '127.0.0.1']
-
+ALLOWED_HOSTS = ['192.168.1.228', 'gregory.fun', '91.214.242.240', '127.0.0.1', '[::1]']
 
 # Application definition
 
@@ -125,10 +124,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Default primary key field type
@@ -137,12 +132,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://127.0.0.1:8000/",
-    "https://127.0.0.1:8000/",
-    "https://gregory.fun/"
+    "https://*.gregory.fun/"
 ]
-
+LD_CSRF_TRUSTED_ORIGINS = [
+    "https://*.gregory.fun/"
+]
 AUTH_USER_MODEL = 'users.GrfcUser'
+LOGIN_URL = 'users:login'
+LOGOUT_URL = 'users:logout'
+LOGOUT_REDIRECT_URL = 'users:login'
 
 ADMINS = (
     ('admin', 'admin@admin.com'),

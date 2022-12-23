@@ -3,13 +3,15 @@
   <div class="auth">
     <div class="auth__content">
       <p class="auth__title">Авторизация</p>
-      <form class="auth__search-form" @submit.prevent>
+      <form class="auth__search-form" method="post">
+        <input type="hidden" name="csrfmiddlewaretoken" :value="token">
         <div class="form-group">
           <input
             type="text"
             v-model="login"
             class="form-control"
             placeholder="Логин"
+            name="username"
           />
         </div>
         <div class="form-group">
@@ -18,6 +20,7 @@
             v-model="password"
             class="form-control"
             placeholder="Пароль"
+            name="password"
           />
         </div>
         <button type="submit" class="btn btn-primary" @click="isValidAuth">
@@ -41,11 +44,14 @@ export default defineComponent({
     return {
       login: '',
       password: '',
+      token: this.$cookies.get("csrftoken"),
     };
   },
   methods: {
     isValidAuth() {
+      console.log(this.token);
       if ((this.login === 'login', this.password === '0000')) {
+
         this.$router.push('/');
       }
     },

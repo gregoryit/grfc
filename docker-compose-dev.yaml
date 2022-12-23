@@ -1,0 +1,40 @@
+services:
+  pg:
+    container_name: pg
+    hostname: pg
+    image: postgres:latest
+    networks:
+      - net
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./scripts/:/docker-entrypoint-initdb.d
+      - .:/var/lib/postgresql/data
+
+  web:
+    container_name: grfc_backend_dev
+    networks:
+      - net
+    build: 
+      context: ./grfc_backend 
+      dockerfile: DockerfileDev
+    ports:
+      - "8001:8001"
+    command: python manage.py runserver 0.0.0.0:8001
+
+    volumes:
+      - ./grfc_backend/static:/static
+      - ./grfc_backend:/app
+
+    depends_on:
+      - pg
+
+    env_file:
+      - .env
+
+
+networks:
+  net:

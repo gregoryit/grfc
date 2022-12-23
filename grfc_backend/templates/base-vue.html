@@ -1,13 +1,9 @@
-{% extends 'base.html' %} {% block html %}
-<!doctype html>
-<html lang="">
-
-<head>{% block head %}{{ block.super }}{% endblock %}<script defer="defer"
-        src="/static/dist/js/chunk-vendors.c89f170c.js"></script>
-    <script defer="defer" src="/static/dist/js/app.e5c05dc2.js"></script>
-    <link href="/static/dist/css/app.3c3c05e9.css" rel="stylesheet">
+{% extends 'base.html' %} {% block html %}<!doctype html><html lang="">
+<head>{% block head %}{{ block.super }}{% endblock %}
+<script defer="defer" src="/static/dist/js/chunk-vendors.0ebe5d80.js"></script>
+<script defer="defer" src="/static/dist/js/app.bf02139f.js"></script>
+<link href="/static/dist/css/app.88ac8db7.css" rel="stylesheet">
 </head>
-
-<body>{% block body %} {{ block.super }}<div id="app"></div>{% csrf_token %} {% endblock %}</body>
-
+<body>
+{% block body %} {{ block.super }}<div id="app"></div>{% csrf_token %} {% endblock %}</body>
 </html>{% endblock %}
